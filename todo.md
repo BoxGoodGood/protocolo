@@ -75,3 +75,12 @@
 - [x] Sincronizar fade-in com a borda no hover
 - [x] Adicionar borda ao botão "Começar o Quiz Agora"
 - [x] Inserir texto na página de processamento
+
+
+## Novas Alterações - Interatividade e Efeito de Digitação
+
+- [x] Adicionar borda azul ao hover do botão "Começar o Quiz Agora"
+- [x] Criar componente com efeito de digitação
+- [x] Remover texto "Estamos preparando seu plano personalizado"
+- [x] Inserir novo texto com efeito de digitação
+- [x] Programar avanço automático 1s após completar digitação

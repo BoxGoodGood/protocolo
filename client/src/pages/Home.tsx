@@ -1,9 +1,11 @@
+import React from "react";
 import { useLocation } from "wouter";
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const [, setLocation] = useLocation();
+  const [isHoveringCta, setIsHoveringCta] = React.useState(false);
 
   const handleStartQuiz = () => {
     setLocation("/quiz");
@@ -58,12 +60,15 @@ export default function Home() {
           transition={{ delay: 0.6, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onMouseEnter={() => setIsHoveringCta(true)}
+          onMouseLeave={() => setIsHoveringCta(false)}
           onClick={handleStartQuiz}
           className="w-full p-5 rounded-2xl font-bold text-lg text-white transition-all duration-300 shadow-lg mb-6 border-2"
           style={{
             fontFamily: QUIZ_FONTS.primary,
             backgroundColor: QUIZ_COLORS.primary,
-            borderColor: QUIZ_COLORS.primary,
+            borderColor: isHoveringCta ? "#4466ff" : QUIZ_COLORS.primary,
+            boxShadow: isHoveringCta ? "0 0 12px #4466ff60" : "none",
           }}
         >
           Começar o Quiz Agora

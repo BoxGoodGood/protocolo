@@ -1,7 +1,19 @@
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
+import TypingEffect from "./TypingEffect";
 import { motion } from "framer-motion";
 
 export default function ProcessingScreen() {
+  const [, setLocation] = useLocation();
+
+  const handleTypingComplete = () => {
+    // Redirect to results page after 1 second
+    setTimeout(() => {
+      setLocation("/results");
+    }, 1000);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -38,31 +50,11 @@ export default function ProcessingScreen() {
           Analisando suas respostas...
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="text-lg mb-6"
-          style={{
-            fontFamily: QUIZ_FONTS.secondary,
-            color: QUIZ_COLORS.lightText,
-          }}
-        >
-          Estamos preparando seu plano personalizado
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-base max-w-md leading-relaxed"
-          style={{
-            fontFamily: QUIZ_FONTS.secondary,
-            color: QUIZ_COLORS.text,
-          }}
-        >
-          Veja a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê.
-        </motion.p>
+        <TypingEffect
+          text="Assista a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê."
+          speed={30}
+          onComplete={handleTypingComplete}
+        />
 
         <motion.div
           initial={{ opacity: 0 }}
