@@ -36,22 +36,36 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline - H1 */}
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-2xl md:text-3xl font-bold mb-8"
+          className="text-4xl md:text-5xl font-bold mb-3"
+          style={{
+            fontFamily: QUIZ_FONTS.primary,
+            color: "#4868f6",
+            lineHeight: "1.2",
+          }}
+        >
+          O seu bebê só dorme no peito ou no colo?
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="text-lg md:text-xl font-medium mb-8"
           style={{
             fontFamily: QUIZ_FONTS.primary,
             color: "#4868f6",
             lineHeight: "1.4",
           }}
         >
-          O seu bebê só dorme no peito ou no colo? Responda 5 perguntas e
-          descubra o erro de rotina que está te deixando presa a um ciclo de
-          exaustão.
-        </motion.h1>
+          Responda 5 perguntas e descubra o erro de rotina que está te deixando
+          presa a um ciclo de exaustão.
+        </motion.p>
 
         {/* CTA Button */}
         <motion.button

@@ -104,3 +104,8 @@
 ## Correção de Fluxo - Aguardar Texto Completo
 
 - [x] Corrigir TypingEffect para aguardar texto completo antes de disparar onComplete
+
+
+## Ajustes de Tipografia - Headlines
+
+- [x] Separar headline em H1 e subtítulo com fonte menor
