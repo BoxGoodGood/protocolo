@@ -8,10 +8,10 @@ export default function ProcessingScreen() {
   const [, setLocation] = useLocation();
 
   const handleTypingComplete = () => {
-    // Redirect to results page after 1 second
+    // Redirect to results page after 2 seconds
     setTimeout(() => {
       setLocation("/results");
-    }, 1000);
+    }, 2000);
   };
 
   return (
@@ -52,7 +52,7 @@ export default function ProcessingScreen() {
 
         <TypingEffect
           text="Assista a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê."
-          speed={30}
+          speed={120}
           onComplete={handleTypingComplete}
         />
 

@@ -22,7 +22,6 @@ export const QUIZ_QUESTIONS = [
       { value: "1-3 times", label: "1 a 3 vezes", emoji: "😞" },
       { value: "3-5 times", label: "3 a 5 vezes", emoji: "😰" },
       { value: "many_times", label: "Já Perdi as contas", emoji: "🤯" },
-      { value: "fragmented", label: "Só dorme de forma picada", emoji: "😵‍💫" },
     ],
   },
   {

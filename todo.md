@@ -92,3 +92,10 @@
 - [x] Alterar cor da headline para #4868f6
 - [x] Melhorar contraste do botão
 - [x] Diminuir velocidade do efeito de digitação
+
+
+## Ajustes Finais - Efeito de Digitação e Opções
+
+- [x] Aumentar velocidade do efeito de digitação (mais lento e suave)
+- [x] Aumentar tempo de espera para 2s após completar o texto
+- [x] Remover opção "Só dorme de forma picada" da pergunta 2
