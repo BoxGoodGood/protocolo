@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import VideoPlayer from "@/components/VideoPlayer";
 import YouKnewSection from "@/components/YouKnewSection";
-import BackButton from "@/components/BackButton";
 import { motion } from "framer-motion";
 
 declare global {
@@ -58,7 +57,7 @@ export default function Results() {
   const handleCtaClick = () => {
     if (window.fbq) {
       window.fbq("track", "Purchase", {
-        value: 0,
+        value: 47.90,
         currency: "BRL",
         content_name: "Offer Clicked",
       });
@@ -66,7 +65,7 @@ export default function Results() {
 
     if (window.gtag) {
       window.gtag("event", "purchase", {
-        value: 0,
+        value: 47.90,
         currency: "BRL",
       });
     }
@@ -77,11 +76,6 @@ export default function Results() {
       className="min-h-screen relative"
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
-      {/* BackButton posicionado absolutamente no topo direito */}
-      <div className="absolute top-4 left-4 z-50">
-        <BackButton />
-      </div>
-
       <div className="max-w-2xl mx-auto px-4 py-16">
         {/* Texto explicativo com palavras destacadas */}
         <motion.div
@@ -118,6 +112,27 @@ export default function Results() {
           <VideoPlayer onCtaReady={handleCtaReady} />
         </motion.div>
 
+        {/* Texto de espera */}
+        {!showCta && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mb-8 text-center"
+          >
+            <p
+              className="text-lg"
+              style={{
+                fontFamily: QUIZ_FONTS.secondary,
+                color: QUIZ_COLORS.lightText,
+              }}
+            >
+              o acesso será liberado após, a explicação do vídeo ⏳
+            </p>
+          </motion.div>
+        )}
+
+        {/* Botão CTA pulsante em verde */}
         {showCta && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -125,15 +140,30 @@ export default function Results() {
             transition={{ duration: 0.5 }}
             className="mb-8"
           >
+            <style>{`
+              @keyframes pulse-glow {
+                0%, 100% {
+                  opacity: 1;
+                  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3);
+                }
+                50% {
+                  opacity: 0.8;
+                  box-shadow: 0 0 30px rgba(34, 197, 94, 0.7), 0 0 60px rgba(34, 197, 94, 0.4);
+                }
+              }
+              .pulse-button {
+                animation: pulse-glow 2s ease-in-out infinite;
+              }
+            `}</style>
             <button
               onClick={handleCtaClick}
-              className="w-full p-6 rounded-2xl font-bold text-xl text-white transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+              className="pulse-button w-full p-6 rounded-2xl font-bold text-xl text-white transition-all duration-300 hover:scale-105"
               style={{
                 fontFamily: QUIZ_FONTS.primary,
-                backgroundColor: QUIZ_COLORS.primary,
+                backgroundColor: "#22c55e",
               }}
             >
-              🎁 Quero Acessar a Oferta Especial
+              Receba o acesso agora por R$ 47,90
             </button>
           </motion.div>
         )}

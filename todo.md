@@ -156,3 +156,12 @@
 - [x] Atualizar texto para nova versão
 - [x] Destacar "passo a passo validado" em azul
 - [x] Destacar "autonomia de sono" em azul
+
+
+## Ajustes da P\u00e1## Ajustes da Página de Resultados - Botão e Texto de CTA
+
+- [x] Remover botão de voltar da página de resultados
+- [x] Atualizar texto para "o acesso será liberado após, a explicação do vídeo ⏳"
+- [x] Criar botão pulsante em verde
+- [x] Alterar texto do botão para "Receba o acesso agora por R$ 47,90"
+- [x] Botão aparecer apenas após vídeo terminart\u00e3o aparecer apenas ap\u00f3s v\u00eddeo terminar
