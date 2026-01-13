@@ -20,7 +20,7 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="max-w-md text-center"
       >
-        {/* Header */}
+        {/* Emoji */}
         <motion.div
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
@@ -28,69 +28,35 @@ export default function Home() {
           className="mb-8"
         >
           <div
-            className="text-6xl mb-4"
+            className="text-6xl"
             style={{ fontFamily: QUIZ_FONTS.primary }}
           >
             😴
           </div>
-          <h1
-            className="text-4xl font-bold mb-4"
-            style={{
-              fontFamily: QUIZ_FONTS.primary,
-              color: QUIZ_COLORS.text,
-            }}
-          >
-            Seu Bebê Dorme Bem?
-          </h1>
         </motion.div>
 
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-lg mb-6"
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-2xl md:text-3xl font-bold mb-8"
           style={{
-            fontFamily: QUIZ_FONTS.secondary,
-            color: QUIZ_COLORS.lightText,
-            lineHeight: "1.6",
+            fontFamily: QUIZ_FONTS.primary,
+            color: QUIZ_COLORS.text,
+            lineHeight: "1.4",
           }}
         >
-          Descubra o plano personalizado para transformar o sono do seu bebê e
-          recuperar suas noites de descanso. Responda 6 perguntas rápidas e
-          receba recomendações exclusivas.
-        </motion.p>
-
-        {/* Benefits */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="mb-8 space-y-3"
-        >
-          {[
-            "✓ Análise personalizada em 2 minutos",
-            "✓ Plano baseado nas suas respostas",
-            "✓ 100% confidencial e seguro",
-          ].map((benefit, idx) => (
-            <p
-              key={idx}
-              className="text-sm font-semibold"
-              style={{
-                fontFamily: QUIZ_FONTS.secondary,
-                color: QUIZ_COLORS.text,
-              }}
-            >
-              {benefit}
-            </p>
-          ))}
-        </motion.div>
+          O seu bebê só dorme no peito ou no colo? Responda 5 perguntas e
+          descubra o erro de rotina que está te deixando presa a um ciclo de
+          exaustão.
+        </motion.h1>
 
         {/* CTA Button */}
         <motion.button
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleStartQuiz}
@@ -107,7 +73,7 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
           className="text-xs"
           style={{
             fontFamily: QUIZ_FONTS.secondary,

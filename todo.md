@@ -31,3 +31,12 @@
 - Fontes: Arredondadas (Poppins, Nunito)
 - Hospedagem de vídeo: Supabase Storage
 - Delay de CTA: Configurável (sugestão: 3-4 minutos)
+
+
+## Alterações Solicitadas
+
+- [x] Alterar headline para "O seu bebê só dorme no peito ou no colo? Responda 5 perguntas e descubra o erro de rotina que está te deixando presa a um ciclo de exaustão."
+- [x] Remover checklist de benefícios da página inicial
+- [x] Barra de progresso mostrando apenas percentual (sem número de perguntas)
+- [x] Limitar a 4 opções de resposta por pergunta
+- [x] Avanço automático para próxima pergunta ao clicar na opção

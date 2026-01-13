@@ -26,20 +26,15 @@ export default function Quiz() {
       ...answers,
       [currentQuestion]: value,
     });
-  };
 
-  const handleNext = () => {
-    if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setShowEmailForm(true);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
+    // Auto-advance to next question after a short delay
+    setTimeout(() => {
+      if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        setShowEmailForm(true);
+      }
+    }, 300);
   };
 
   const handleSubmitQuiz = async () => {
@@ -164,7 +159,6 @@ export default function Quiz() {
   }
 
   const currentQuestionData = QUIZ_QUESTIONS[currentQuestion];
-  const isAnswered = answers[currentQuestion] !== undefined;
 
   return (
     <div
@@ -183,34 +177,6 @@ export default function Quiz() {
             selectedValue={answers[currentQuestion]}
           />
         </AnimatePresence>
-      </div>
-
-      <div className="px-4 py-6 flex gap-3">
-        <button
-          onClick={handlePrevious}
-          disabled={currentQuestion === 0}
-          className="flex-1 p-4 rounded-2xl font-semibold text-lg transition-all disabled:opacity-30"
-          style={{
-            fontFamily: QUIZ_FONTS.secondary,
-            backgroundColor: QUIZ_COLORS.background,
-            color: QUIZ_COLORS.primary,
-            border: `2px solid ${QUIZ_COLORS.primary}`,
-          }}
-        >
-          Anterior
-        </button>
-
-        <button
-          onClick={handleNext}
-          disabled={!isAnswered}
-          className="flex-1 p-4 rounded-2xl font-semibold text-lg text-white transition-all disabled:opacity-30"
-          style={{
-            fontFamily: QUIZ_FONTS.primary,
-            backgroundColor: QUIZ_COLORS.primary,
-          }}
-        >
-          {currentQuestion === QUIZ_QUESTIONS.length - 1 ? "Finalizar" : "Próximo"}
-        </button>
       </div>
     </div>
   );

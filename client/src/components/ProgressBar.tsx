@@ -1,4 +1,5 @@
 import { QUIZ_COLORS } from "@/constants/quiz";
+import { motion } from "framer-motion";
 
 interface ProgressBarProps {
   current: number;
@@ -6,35 +7,41 @@ interface ProgressBarProps {
 }
 
 export default function ProgressBar({ current, total }: ProgressBarProps) {
-  const percentage = (current / total) * 100;
+  const percentage = Math.round((current / total) * 100);
 
   return (
-    <div className="w-full px-4 py-6">
-      <div className="flex justify-between items-center mb-2">
-        <span
-          className="text-sm font-medium"
-          style={{ color: QUIZ_COLORS.lightText }}
+    <div
+      className="w-full px-4 py-6"
+      style={{ backgroundColor: QUIZ_COLORS.background }}
+    >
+      <div className="max-w-2xl mx-auto">
+        {/* Percentage Text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mb-3"
         >
-          Pergunta {current} de {total}
-        </span>
-        <span
-          className="text-sm font-medium"
-          style={{ color: QUIZ_COLORS.lightText }}
-        >
-          {Math.round(percentage)}%
-        </span>
-      </div>
-      <div
-        className="w-full h-3 rounded-full overflow-hidden"
-        style={{ backgroundColor: QUIZ_COLORS.border }}
-      >
+          <p
+            className="text-sm font-semibold"
+            style={{ color: QUIZ_COLORS.text }}
+          >
+            {percentage}%
+          </p>
+        </motion.div>
+
+        {/* Progress Bar */}
         <div
-          className="h-full rounded-full transition-all duration-500 ease-out"
-          style={{
-            width: `${percentage}%`,
-            background: `linear-gradient(90deg, ${QUIZ_COLORS.primary}, ${QUIZ_COLORS.accent})`,
-          }}
-        />
+          className="w-full h-2 rounded-full overflow-hidden"
+          style={{ backgroundColor: QUIZ_COLORS.border }}
+        >
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${percentage}%` }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="h-full rounded-full"
+            style={{ backgroundColor: QUIZ_COLORS.primary }}
+          />
+        </div>
       </div>
     </div>
   );

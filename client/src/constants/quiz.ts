@@ -8,8 +8,7 @@ export const QUIZ_QUESTIONS = [
     question: "Qual a idade do seu bebê?",
     type: "single-choice",
     options: [
-      { value: "0-3 months", label: "0 a 3 meses" },
-      { value: "3-6 months", label: "3 a 6 meses" },
+      { value: "0-6 months", label: "0 a 6 meses" },
       { value: "6-12 months", label: "6 a 12 meses" },
       { value: "1-2 years", label: "1 a 2 anos" },
       { value: "2+ years", label: "Mais de 2 anos" },
@@ -45,6 +44,7 @@ export const QUIZ_QUESTIONS = [
       { value: "yes", label: "Sim, muito estabelecida" },
       { value: "somewhat", label: "Mais ou menos" },
       { value: "no", label: "Não, nenhuma rotina" },
+      { value: "trying", label: "Estou tentando criar" },
     ],
   },
   {
@@ -66,6 +66,7 @@ export const QUIZ_QUESTIONS = [
       { value: "yes_many", label: "Sim, muitos métodos" },
       { value: "yes_few", label: "Sim, alguns métodos" },
       { value: "no", label: "Não, é a primeira vez" },
+      { value: "considering", label: "Estou pesquisando opções" },
     ],
   },
 ];
