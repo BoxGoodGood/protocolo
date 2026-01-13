@@ -115,3 +115,8 @@
 
 - [x] Acelerar fade-in nos botões de opção
 - [x] Sincronizar fade-in com mudança de cor da borda
+
+
+## Efeito Hover - Botão CTA
+
+- [x] Implementar Hover Glow Effect no botão "Começar Agora"\u00e7ar Agora"

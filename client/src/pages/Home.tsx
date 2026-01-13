@@ -67,7 +67,7 @@ export default function Home() {
           presa a um ciclo de exaustão.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA Button with Hover Glow Effect */}
         <motion.button
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -77,12 +77,14 @@ export default function Home() {
           onMouseEnter={() => setIsHoveringCta(true)}
           onMouseLeave={() => setIsHoveringCta(false)}
           onClick={handleStartQuiz}
-          className="w-full p-5 rounded-2xl font-bold text-lg text-white transition-all duration-300 shadow-lg mb-6 border-2"
+          className="w-full p-5 rounded-2xl font-bold text-lg text-white transition-all duration-300 mb-6 border-2 relative"
           style={{
             fontFamily: QUIZ_FONTS.primary,
             backgroundColor: "#4868f6",
-            borderColor: isHoveringCta ? "#4466ff" : "#4868f6",
-            boxShadow: isHoveringCta ? "0 0 12px #4466ff60, 0 4px 12px rgba(72, 104, 246, 0.3)" : "0 4px 12px rgba(72, 104, 246, 0.2)",
+            borderColor: "#4868f6",
+            boxShadow: isHoveringCta 
+              ? "0 0 30px #4868f6, 0 0 60px #4868f680, 0 0 90px #4868f640, 0 4px 20px rgba(72, 104, 246, 0.4)"
+              : "0 4px 12px rgba(72, 104, 246, 0.2)",
           }}
         >
           Começar Agora
