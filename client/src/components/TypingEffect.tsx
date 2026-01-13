@@ -27,12 +27,16 @@ export default function TypingEffect({
       return () => clearTimeout(timer);
     } else if (displayedText.length === text.length && !isComplete) {
       setIsComplete(true);
-      if (onComplete) {
-        const completeTimer = setTimeout(onComplete, 1000);
-        return () => clearTimeout(completeTimer);
-      }
     }
-  }, [displayedText, text, speed, isComplete, onComplete]);
+  }, [displayedText, text, speed, isComplete]);
+
+  // Disparar onComplete apenas após o texto estar completo E aguardar 2 segundos
+  useEffect(() => {
+    if (isComplete && onComplete) {
+      const completeTimer = setTimeout(onComplete, 2000);
+      return () => clearTimeout(completeTimer);
+    }
+  }, [isComplete, onComplete]);
 
   return (
     <motion.p

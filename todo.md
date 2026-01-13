@@ -99,3 +99,8 @@
 - [x] Aumentar velocidade do efeito de digitação (mais lento e suave)
 - [x] Aumentar tempo de espera para 2s após completar o texto
 - [x] Remover opção "Só dorme de forma picada" da pergunta 2
+
+
+## Correção de Fluxo - Aguardar Texto Completo
+
+- [x] Corrigir TypingEffect para aguardar texto completo antes de disparar onComplete
