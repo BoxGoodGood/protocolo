@@ -147,3 +147,12 @@
 - [x] Remover headline "Seu Plano Personalizado"
 - [x] Remover caixa com texto "Olá! 👋 Assista ao vídeo..."
 - [x] Manter apenas texto explicativo sobre o vídeoeddeo
+
+
+## Corre\u00e7\u00e3o da P\u00## Correção da Página de Resultados - Botão e Texto
+
+- [x] Corrigir posicionamento do botão de voltar
+- [x] Centralizar mais o texto explicativo
+- [x] Atualizar texto para nova versão
+- [x] Destacar "passo a passo validado" em azul
+- [x] Destacar "autonomia de sono" em azul

@@ -77,26 +77,35 @@ export default function Results() {
       className="min-h-screen relative"
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
-      <BackButton />
+      {/* BackButton posicionado absolutamente no topo direito */}
+      <div className="absolute top-4 left-4 z-50">
+        <BackButton />
+      </div>
 
-      <div className="max-w-2xl mx-auto px-4 py-8">
-        {/* Texto explicativo */}
+      <div className="max-w-2xl mx-auto px-4 py-16">
+        {/* Texto explicativo com palavras destacadas */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-8 text-center"
+          className="mb-12 text-center"
         >
           <p
-            className="text-lg md:text-xl"
+            className="text-lg md:text-xl leading-relaxed"
             style={{
               fontFamily: QUIZ_FONTS.secondary,
               color: QUIZ_COLORS.text,
             }}
           >
-            Assista abaixo uma breve explicação com o passo passo validado por
-            milhares de mães para recuperar suas noites e conquistar a autonomia
-            de sono do seu bebê.
+            Assista abaixo ao{" "}
+            <span style={{ color: "#4868f6", fontWeight: "600" }}>
+              passo a passo validado
+            </span>{" "}
+            por milhares de mães para recuperar suas noites e conquistar a{" "}
+            <span style={{ color: "#4868f6", fontWeight: "600" }}>
+              autonomia de sono
+            </span>{" "}
+            do seu bebê.
           </p>
         </motion.div>
 
