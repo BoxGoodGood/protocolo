@@ -133,3 +133,10 @@
 
 - [x] Alterar de caractere por caractere para palavra por palavra
 - [x] Manter tempo total de 10 segundos
+
+## Simplifica\u00e7\u00e3o da P\u00e1## Simplificação da Página de Processamento
+
+- [x] Remover efeito de digitação
+- [x] Manter apenas texto "Analisando suas respostas"
+- [x] Configurar delay de 3 segundos
+- [x] Avançar automaticamente para página de vídeodeo
