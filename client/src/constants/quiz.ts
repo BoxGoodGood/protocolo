@@ -19,10 +19,10 @@ export const QUIZ_QUESTIONS = [
     question: "Quantas vezes seu bebê acorda à noite?",
     type: "single-choice",
     options: [
-      { value: "1-3 times", label: "1 a 3 vezes 😞", emoji: "😞" },
-      { value: "3-5 times", label: "3 a 5 vezes 😰", emoji: "😰" },
-      { value: "many_times", label: "Já Perdi as contas 🤯", emoji: "🤯" },
-      { value: "fragmented", label: "Só dorme de forma picada 😵‍💫", emoji: "😵‍💫" },
+      { value: "1-3 times", label: "1 a 3 vezes", emoji: "😞" },
+      { value: "3-5 times", label: "3 a 5 vezes", emoji: "😰" },
+      { value: "many_times", label: "Já Perdi as contas", emoji: "🤯" },
+      { value: "fragmented", label: "Só dorme de forma picada", emoji: "😵‍💫" },
     ],
   },
   {
@@ -33,6 +33,7 @@ export const QUIZ_QUESTIONS = [
       { value: "nursing", label: "Mamando (Peito ou mamadeira)" },
       { value: "rocking", label: "Sendo balançado/No colo" },
       { value: "car", label: "No carrinho ou passeando de carro" },
+      { value: "crib_alone", label: "Sozinho no berço (mas acorda logo em seguida)" },
     ],
   },
   {

@@ -50,3 +50,12 @@
 - [x] Atualizar pergunta 4 com apenas 3 opções
 - [x] Atualizar pergunta 5 com novo foco em impacto do cansaço
 - [x] Adicionar seção "Você Sabia!" com espaço para imagens de reportagens
+
+
+## Ajustes Finais de UX e Design
+
+- [x] Reformular pergunta 2: emojis 3D em destaque (somente emoji, sem texto)
+- [x] Adicionar opção "Sozinho no berço (mas acorda logo em seguida)" na pergunta 3
+- [x] Remover captura de email do quiz
+- [x] Centralizar todos os textos
+- [x] Aplicar estilo de destaque nas caixas de opção (similar ao sleep-escape-quiz)
