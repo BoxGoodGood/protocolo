@@ -44,7 +44,7 @@ export default function Home() {
           className="text-2xl md:text-3xl font-bold mb-8"
           style={{
             fontFamily: QUIZ_FONTS.primary,
-            color: QUIZ_COLORS.text,
+            color: "#4868f6",
             lineHeight: "1.4",
           }}
         >
@@ -66,12 +66,12 @@ export default function Home() {
           className="w-full p-5 rounded-2xl font-bold text-lg text-white transition-all duration-300 shadow-lg mb-6 border-2"
           style={{
             fontFamily: QUIZ_FONTS.primary,
-            backgroundColor: QUIZ_COLORS.primary,
-            borderColor: isHoveringCta ? "#4466ff" : QUIZ_COLORS.primary,
-            boxShadow: isHoveringCta ? "0 0 12px #4466ff60" : "none",
+            backgroundColor: "#4868f6",
+            borderColor: isHoveringCta ? "#4466ff" : "#4868f6",
+            boxShadow: isHoveringCta ? "0 0 12px #4466ff60, 0 4px 12px rgba(72, 104, 246, 0.3)" : "0 4px 12px rgba(72, 104, 246, 0.2)",
           }}
         >
-          Começar o Quiz Agora
+          Começar Agora
         </motion.button>
 
         {/* Trust Signal */}
