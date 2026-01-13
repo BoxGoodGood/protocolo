@@ -56,13 +56,13 @@ export default function QuizQuestion({
               key={option.value}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.3 }}
+              transition={{ delay: idx * 0.05, duration: 0.2 }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onMouseEnter={() => setHoveredOption(option.value)}
               onMouseLeave={() => setHoveredOption(null)}
               onClick={() => onSelect(option.value)}
-              className={`w-full p-4 rounded-2xl font-semibold transition-all duration-300 border-2 touch-manipulation flex flex-col items-center justify-center ${
+              className={`w-full p-4 rounded-2xl font-semibold border-2 touch-manipulation flex flex-col items-center justify-center ${
                 isEmojiQuestion ? "min-h-24" : ""
               }`}
               style={{
@@ -83,7 +83,7 @@ export default function QuizQuestion({
                   : isHovered
                   ? "0 4px 12px #4466ff40"
                   : "none",
-                transition: "all 0.3s ease",
+                transition: "all 0.2s ease",
               }}
             >
               {isEmojiQuestion && option.emoji ? (

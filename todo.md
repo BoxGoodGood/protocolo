@@ -109,3 +109,9 @@
 ## Ajustes de Tipografia - Headlines
 
 - [x] Separar headline em H1 e subtítulo com fonte menor
+
+
+## Ajustes de Anima\u00e7\u00e## Ajustes de Animação - Fade-in e Borda
+
+- [x] Acelerar fade-in nos botões de opção
+- [x] Sincronizar fade-in com mudança de cor da borda
