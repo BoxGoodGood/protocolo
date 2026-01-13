@@ -8,11 +8,11 @@ interface TypingEffectProps {
   onComplete?: () => void;
 }
 
-// Velocidade padrão: 120ms por caractere (aproximadamente 30-35 palavras por minuto - mais lento e suave)
+// Velocidade padrão: 35ms por caractere (aproximadamente 5 segundos para texto completo)
 
 export default function TypingEffect({
   text,
-  speed = 120,
+  speed = 35,
   onComplete,
 }: TypingEffectProps) {
   const [displayedText, setDisplayedText] = useState("");
@@ -54,10 +54,13 @@ export default function TypingEffect({
         <motion.span
           animate={{ opacity: [1, 0] }}
           transition={{ duration: 0.6, repeat: Infinity }}
-          className="ml-1"
-        >
-          |
-        </motion.span>
+          className="ml-1 inline-block"
+          style={{
+            width: "2px",
+            height: "1em",
+            backgroundColor: QUIZ_COLORS.text,
+          }}
+        />
       )}
     </motion.p>
   );

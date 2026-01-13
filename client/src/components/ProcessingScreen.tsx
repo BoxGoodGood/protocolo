@@ -51,8 +51,8 @@ export default function ProcessingScreen() {
         </motion.h2>
 
         <TypingEffect
-          text="Assista a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê."
-          speed={120}
+          text="Veja a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê."
+          speed={35}
           onComplete={handleTypingComplete}
         />
 

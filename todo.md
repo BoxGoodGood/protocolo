@@ -115,3 +115,10 @@
 
 - [x] Acelerar fade-in nos botões de opção
 - [x] Sincronizar fade-in com mudança de cor da borda
+
+
+## Efeito de Digita\u00e7\u00## Efeito de Digitação - Novo Texto e Cursor
+
+- [x] Alterar texto para nova frase
+- [x] Ajustar velocidade para 35ms por letra
+- [x] Adicionar cursor piscando ao final
