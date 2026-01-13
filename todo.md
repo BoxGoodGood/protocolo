@@ -1,0 +1,33 @@
+# Quiz Sono Infantil - TODO
+
+## Funcionalidades Obrigatórias
+
+- [x] Schema do Supabase com tabela de leads
+- [x] 6 perguntas sobre sono do bebê
+- [x] Barra de progresso visual
+- [x] Tela de processamento com animação
+- [x] Página de resultados preparada para VSL
+- [x] Salvar respostas no Supabase automaticamente
+- [x] Design mobile-first com paleta pastel (azul bebê, rosa suave, lavanda)
+- [x] Fontes arredondadas
+- [x] Botões grandes otimizados para polegar
+- [x] Estrutura preparada para Pixel do Facebook
+- [x] Estrutura preparada para Pixel do Google
+- [x] Sistema de delay para CTA após vídeo
+- [x] Testar fluxo completo
+- [x] Otimizar para mobile
+
+## Notas de Implementação
+
+- Perguntas do quiz:
+  1. Qual a idade do seu bebê?
+  2. Quantas vezes seu bebê acorda à noite?
+  3. Como seu bebê costuma adormecer na maioria das vezes?
+  4. Seu bebê tem uma rotina de sono estabelecida?
+  5. Como você se sente sobre a situação de sono do seu bebê?
+  6. Já tentou outros métodos para melhorar o sono?
+
+- Cores: Azul bebê (#B8E5F5), Rosa suave (#F5B8D8), Lavanda (#E8D5F2)
+- Fontes: Arredondadas (Poppins, Nunito)
+- Hospedagem de vídeo: Supabase Storage
+- Delay de CTA: Configurável (sugestão: 3-4 minutos)
