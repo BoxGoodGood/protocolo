@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
+import { useEffect, useState } from "react";
 
 interface TypingEffectProps {
   text: string;
@@ -8,60 +6,48 @@ interface TypingEffectProps {
   onComplete?: () => void;
 }
 
-// Velocidade padrão: 76ms por caractere (aproximadamente 10 segundos para texto completo - leitura confortável)
+// Velocidade padrão: 400ms por palavra (10 segundos para texto completo - leitura confortável)
 
 export default function TypingEffect({
   text,
-  speed = 76,
+  speed = 400,
   onComplete,
 }: TypingEffectProps) {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedWords, setDisplayedWords] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    if (displayedText.length < text.length) {
-      const timer = setTimeout(() => {
-        setDisplayedText(text.slice(0, displayedText.length + 1));
-      }, speed);
+    const words = text.split(" ");
+    let currentIndex = 0;
 
-      return () => clearTimeout(timer);
-    } else if (displayedText.length === text.length && !isComplete) {
-      setIsComplete(true);
-    }
-  }, [displayedText, text, speed, isComplete]);
+    const interval = setInterval(() => {
+      if (currentIndex < words.length) {
+        setDisplayedWords((prev) => [...prev, words[currentIndex]]);
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+        setIsComplete(true);
+        if (onComplete) {
+          onComplete();
+        }
+      }
+    }, speed);
 
-  // Disparar onComplete apenas após o texto estar completo E aguardar 2 segundos
-  useEffect(() => {
-    if (isComplete && onComplete) {
-      const completeTimer = setTimeout(onComplete, 2000);
-      return () => clearTimeout(completeTimer);
-    }
-  }, [isComplete, onComplete]);
+    return () => clearInterval(interval);
+  }, [text, speed, onComplete]);
 
   return (
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.4 }}
-      className="text-base max-w-md leading-relaxed min-h-24 flex items-center justify-center"
-      style={{
-        fontFamily: QUIZ_FONTS.secondary,
-        color: QUIZ_COLORS.text,
-      }}
-    >
-      {displayedText}
+    <div className="text-center text-lg text-gray-700 leading-relaxed">
+      <span className="inline">
+        {displayedWords.map((word, index) => (
+          <span key={index} className="inline mr-1">
+            {word}
+          </span>
+        ))}
+      </span>
       {!isComplete && (
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.6, repeat: Infinity }}
-          className="ml-1 inline-block"
-          style={{
-            width: "2px",
-            height: "1em",
-            backgroundColor: QUIZ_COLORS.text,
-          }}
-        />
+        <span className="inline-block w-2 h-6 ml-1 bg-gray-400 animate-pulse" />
       )}
-    </motion.p>
+    </div>
   );
 }

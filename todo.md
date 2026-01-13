@@ -128,3 +128,8 @@
 - [x] Calcular velocidade ideal para 7 segundos totais
 - [x] Ajustar velocidade do efeito para leitura confortável
 - [x] Atualizar ProcessingScreen com nova velocidade
+
+## Efeito de Digita\u00e7\u00## Efeito de Digitação - Palavra por Palavra
+
+- [x] Alterar de caractere por caractere para palavra por palavra
+- [x] Manter tempo total de 10 segundos
