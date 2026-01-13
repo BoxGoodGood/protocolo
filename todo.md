@@ -140,3 +140,10 @@
 - [x] Manter apenas texto "Analisando suas respostas"
 - [x] Configurar delay de 3 segundos
 - [x] Avançar automaticamente para página de vídeodeo
+
+
+## Simplifica\u00e7\u00e3## Simplificação da Página de Resultados
+
+- [x] Remover headline "Seu Plano Personalizado"
+- [x] Remover caixa com texto "Olá! 👋 Assista ao vídeo..."
+- [x] Manter apenas texto explicativo sobre o vídeoeddeo

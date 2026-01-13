@@ -78,60 +78,25 @@ export default function Results() {
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
       <BackButton />
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="px-4 py-8 text-center border-b-2"
-        style={{ borderColor: QUIZ_COLORS.border }}
-      >
-        <h1
-          className="text-3xl md:text-4xl font-bold"
-          style={{
-            fontFamily: QUIZ_FONTS.primary,
-            color: QUIZ_COLORS.text,
-          }}
-        >
-          Seu Plano Personalizado
-        </h1>
-        <p
-          className="mt-2 text-lg"
-          style={{
-            fontFamily: QUIZ_FONTS.secondary,
-            color: QUIZ_COLORS.lightText,
-          }}
-        >
-          Baseado em suas respostas, preparamos uma solução especial para você
-        </p>
-      </motion.div>
 
       <div className="max-w-2xl mx-auto px-4 py-8">
+        {/* Texto explicativo */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-8 p-6 rounded-2xl"
-          style={{
-            backgroundColor: QUIZ_COLORS.accent,
-          }}
+          className="mb-8 text-center"
         >
           <p
-            className="text-lg font-semibold"
+            className="text-lg md:text-xl"
             style={{
               fontFamily: QUIZ_FONTS.secondary,
               color: QUIZ_COLORS.text,
             }}
           >
-            Olá{email ? `, ${email.split("@")[0]}` : ""}! 👋
-          </p>
-          <p
-            className="mt-2"
-            style={{
-              fontFamily: QUIZ_FONTS.secondary,
-              color: QUIZ_COLORS.text,
-            }}
-          >
-            Assista ao vídeo abaixo para descobrir como transformar o sono do
-            seu bebê e recuperar suas noites de descanso.
+            Assista abaixo uma breve explicação com o passo passo validado por
+            milhares de mães para recuperar suas noites e conquistar a autonomia
+            de sono do seu bebê.
           </p>
         </motion.div>
 
