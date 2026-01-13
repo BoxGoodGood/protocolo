@@ -83,7 +83,7 @@ export default function QuizQuestion({
                   : isHovered
                   ? "0 4px 12px #4466ff40"
                   : "none",
-                opacity: isHovered ? 0.95 : 1,
+                transition: "all 0.3s ease",
               }}
             >
               {isEmojiQuestion && option.emoji ? (

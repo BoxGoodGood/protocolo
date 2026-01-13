@@ -42,13 +42,26 @@ export default function ProcessingScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="text-lg"
+          className="text-lg mb-6"
           style={{
             fontFamily: QUIZ_FONTS.secondary,
             color: QUIZ_COLORS.lightText,
           }}
         >
           Estamos preparando seu plano personalizado
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="text-base max-w-md leading-relaxed"
+          style={{
+            fontFamily: QUIZ_FONTS.secondary,
+            color: QUIZ_COLORS.text,
+          }}
+        >
+          Veja a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê.
         </motion.p>
 
         <motion.div

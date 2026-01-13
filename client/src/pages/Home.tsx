@@ -59,10 +59,11 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleStartQuiz}
-          className="w-full p-5 rounded-2xl font-bold text-lg text-white transition-all duration-300 shadow-lg mb-6"
+          className="w-full p-5 rounded-2xl font-bold text-lg text-white transition-all duration-300 shadow-lg mb-6 border-2"
           style={{
             fontFamily: QUIZ_FONTS.primary,
             backgroundColor: QUIZ_COLORS.primary,
+            borderColor: QUIZ_COLORS.primary,
           }}
         >
           Começar o Quiz Agora

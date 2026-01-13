@@ -67,3 +67,11 @@
 - [x] Implementar fade in ao passar mouse nas opções
 - [x] Aplicar cor de borda #4466ff ao passar mouse nas opções
 - [x] Substituir emoji da primeira seção pela imagem enviada
+
+
+## Ajustes Finais - Tamanho e Estilo
+
+- [x] Reduzir tamanho do botão voltar em 40%
+- [x] Sincronizar fade-in com a borda no hover
+- [x] Adicionar borda ao botão "Começar o Quiz Agora"
+- [x] Inserir texto na página de processamento
