@@ -8,11 +8,11 @@ interface TypingEffectProps {
   onComplete?: () => void;
 }
 
-// Velocidade padrão: 35ms por caractere (aproximadamente 5 segundos para texto completo)
+// Velocidade padrão: 53ms por caractere (aproximadamente 7 segundos para texto completo - leitura confortável)
 
 export default function TypingEffect({
   text,
-  speed = 35,
+  speed = 53,
   onComplete,
 }: TypingEffectProps) {
   const [displayedText, setDisplayedText] = useState("");

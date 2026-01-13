@@ -122,3 +122,9 @@
 - [x] Alterar texto para nova frase
 - [x] Ajustar velocidade para 35ms por letra
 - [x] Adicionar cursor piscando ao final
+
+## Efeito de Digita\u00e7\u00## Efeito de Digitação - Tempo Total de 7 Segundos
+
+- [x] Calcular velocidade ideal para 7 segundos totais
+- [x] Ajustar velocidade do efeito para leitura confortável
+- [x] Atualizar ProcessingScreen com nova velocidade

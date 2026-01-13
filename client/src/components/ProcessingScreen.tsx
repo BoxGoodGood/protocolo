@@ -52,7 +52,7 @@ export default function ProcessingScreen() {
 
         <TypingEffect
           text="Veja a seguir o passo a passo validado por milhares de mães para recuperar suas noites e conquistar a autonomia de sono do seu bebê."
-          speed={35}
+          speed={53}
           onComplete={handleTypingComplete}
         />
 
