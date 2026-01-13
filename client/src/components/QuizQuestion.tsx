@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 interface QuestionOption {
   value: string;
   label: string;
+  emoji?: string;
 }
 
 interface QuizQuestionProps {
@@ -39,15 +40,18 @@ export default function QuizQuestion({
         </h2>
 
         <div className="space-y-3">
-          {options.map((option) => {
+          {options.map((option, idx) => {
             const isSelected = selectedValue === option.value;
             return (
               <motion.button
                 key={option.value}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.3 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => onSelect(option.value)}
-                className="w-full p-4 rounded-2xl font-semibold text-lg transition-all duration-300 border-2 touch-manipulation"
+                className="w-full p-4 rounded-2xl font-semibold text-lg transition-all duration-300 border-2 touch-manipulation flex items-center justify-between group"
                 style={{
                   fontFamily: QUIZ_FONTS.secondary,
                   backgroundColor: isSelected
@@ -64,7 +68,18 @@ export default function QuizQuestion({
                     : "none",
                 }}
               >
-                {option.label}
+                <span className="flex-1 text-left">{option.label}</span>
+                {option.emoji && (
+                  <span
+                    className="text-3xl ml-3 group-hover:scale-110 transition-transform"
+                    style={{
+                      filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.15))",
+                      textShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    {option.emoji}
+                  </span>
+                )}
               </motion.button>
             );
           })}

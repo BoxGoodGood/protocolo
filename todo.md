@@ -40,3 +40,13 @@
 - [x] Barra de progresso mostrando apenas percentual (sem número de perguntas)
 - [x] Limitar a 4 opções de resposta por pergunta
 - [x] Avanço automático para próxima pergunta ao clicar na opção
+
+
+## Novas Alterações Solicitadas
+
+- [x] Atualizar pergunta 1 com novas opções de idade (exterogestão, regressões, ansiedade de separação)
+- [x] Atualizar pergunta 2 com emojis 3D e novas opções de acordadas
+- [x] Atualizar pergunta 3 com apenas 3 opções
+- [x] Atualizar pergunta 4 com apenas 3 opções
+- [x] Atualizar pergunta 5 com novo foco em impacto do cansaço
+- [x] Adicionar seção "Você Sabia!" com espaço para imagens de reportagens

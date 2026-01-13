@@ -8,10 +8,10 @@ export const QUIZ_QUESTIONS = [
     question: "Qual a idade do seu bebê?",
     type: "single-choice",
     options: [
-      { value: "0-6 months", label: "0 a 6 meses" },
-      { value: "6-12 months", label: "6 a 12 meses" },
-      { value: "1-2 years", label: "1 a 2 anos" },
-      { value: "2+ years", label: "Mais de 2 anos" },
+      { value: "0-3 months", label: "0-3 meses (Fase de exterogestação)" },
+      { value: "4-6 months", label: "4-6 meses (Fase das regressões)" },
+      { value: "6-12 months", label: "6-12 meses (Fase da ansiedade de separação)" },
+      { value: "1+ years", label: "Acima de 1 ano" },
     ],
   },
   {
@@ -19,10 +19,10 @@ export const QUIZ_QUESTIONS = [
     question: "Quantas vezes seu bebê acorda à noite?",
     type: "single-choice",
     options: [
-      { value: "1-2 times", label: "1 a 2 vezes" },
-      { value: "3-4 times", label: "3 a 4 vezes" },
-      { value: "5+ times", label: "5 ou mais vezes" },
-      { value: "sleeps through", label: "Dorme a noite toda" },
+      { value: "1-3 times", label: "1 a 3 vezes 😞", emoji: "😞" },
+      { value: "3-5 times", label: "3 a 5 vezes 😰", emoji: "😰" },
+      { value: "many_times", label: "Já Perdi as contas 🤯", emoji: "🤯" },
+      { value: "fragmented", label: "Só dorme de forma picada 😵‍💫", emoji: "😵‍💫" },
     ],
   },
   {
@@ -33,7 +33,6 @@ export const QUIZ_QUESTIONS = [
       { value: "nursing", label: "Mamando (Peito ou mamadeira)" },
       { value: "rocking", label: "Sendo balançado/No colo" },
       { value: "car", label: "No carrinho ou passeando de carro" },
-      { value: "alone", label: "Sozinho no berço (mas acorda logo em seguida)" },
     ],
   },
   {
@@ -41,7 +40,6 @@ export const QUIZ_QUESTIONS = [
     question: "Seu bebê tem uma rotina de sono estabelecida?",
     type: "single-choice",
     options: [
-      { value: "yes", label: "Sim, muito estabelecida" },
       { value: "somewhat", label: "Mais ou menos" },
       { value: "no", label: "Não, nenhuma rotina" },
       { value: "trying", label: "Estou tentando criar" },
@@ -49,13 +47,13 @@ export const QUIZ_QUESTIONS = [
   },
   {
     id: 5,
-    question: "Como você se sente sobre a situação de sono do seu bebê?",
+    question: "Você sente que o cansaço tem afetado?",
     type: "single-choice",
     options: [
-      { value: "very_tired", label: "Muito cansada e desesperada" },
-      { value: "tired", label: "Cansada, mas esperançosa" },
-      { value: "okay", label: "Tudo bem, mas gostaria de melhorar" },
-      { value: "satisfied", label: "Satisfeita com a situação" },
+      { value: "patience", label: "Sua paciência e humor" },
+      { value: "relationship", label: "Seu relacionamento" },
+      { value: "energy", label: "Sua energia durante o dia" },
+      { value: "bonding", label: "Seu vínculo com o bebê" },
     ],
   },
   {
@@ -63,7 +61,6 @@ export const QUIZ_QUESTIONS = [
     question: "Já tentou outros métodos para melhorar o sono do seu bebê?",
     type: "single-choice",
     options: [
-      { value: "yes_many", label: "Sim, muitos métodos" },
       { value: "yes_few", label: "Sim, alguns métodos" },
       { value: "no", label: "Não, é a primeira vez" },
       { value: "considering", label: "Estou pesquisando opções" },
@@ -96,4 +93,10 @@ export const VIDEO_CONFIG = {
   muted: false,
   width: "100%",
   height: "auto",
+};
+
+// You Knew section
+export const YOU_KNEW_SECTION = {
+  title: "Você Sabia!",
+  description: "A falta de sono de qualidade pode afetar não só o bebê, mas também a saúde física e emocional da mãe e até o relacionamento do casal.",
 };

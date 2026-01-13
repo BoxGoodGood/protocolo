@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import VideoPlayer from "@/components/VideoPlayer";
+import YouKnewSection from "@/components/YouKnewSection";
 import { motion } from "framer-motion";
 
 declare global {
@@ -196,6 +197,9 @@ export default function Results() {
           ))}
         </motion.div>
       </div>
+
+      {/* You Knew Section */}
+      <YouKnewSection imageUrls={[]} />
     </div>
   );
 }
