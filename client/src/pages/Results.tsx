@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import VideoPlayer from "@/components/VideoPlayer";
 import YouKnewSection from "@/components/YouKnewSection";
+import BackButton from "@/components/BackButton";
 import { motion } from "framer-motion";
 
 declare global {
@@ -73,9 +74,10 @@ export default function Results() {
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen relative"
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
+      <BackButton />
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

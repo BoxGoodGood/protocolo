@@ -20,19 +20,18 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="max-w-md text-center"
       >
-        {/* Emoji */}
+        {/* Image */}
         <motion.div
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mb-8"
         >
-          <div
-            className="text-6xl"
-            style={{ fontFamily: QUIZ_FONTS.primary }}
-          >
-            😴
-          </div>
+          <img
+            src="/cap.png"
+            alt="Mãe e bebê dormindo"
+            className="w-48 h-48 object-contain mx-auto drop-shadow-lg"
+          />
         </motion.div>
 
         {/* Headline */}

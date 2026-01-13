@@ -59,3 +59,11 @@
 - [x] Remover captura de email do quiz
 - [x] Centralizar todos os textos
 - [x] Aplicar estilo de destaque nas caixas de opção (similar ao sleep-escape-quiz)
+
+
+## Novas Alterações - Interatividade e Imagem
+
+- [x] Adicionar botão com seta para voltar em cada página
+- [x] Implementar fade in ao passar mouse nas opções
+- [x] Aplicar cor de borda #4466ff ao passar mouse nas opções
+- [x] Substituir emoji da primeira seção pela imagem enviada

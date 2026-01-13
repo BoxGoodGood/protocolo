@@ -1,5 +1,6 @@
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface QuestionOption {
   value: string;
@@ -20,6 +21,8 @@ export default function QuizQuestion({
   onSelect,
   selectedValue,
 }: QuizQuestionProps) {
+  const [hoveredOption, setHoveredOption] = useState<string | null>(null);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,6 +46,7 @@ export default function QuizQuestion({
       <div className="space-y-3 w-full">
         {options.map((option, idx) => {
           const isSelected = selectedValue === option.value;
+          const isHovered = hoveredOption === option.value;
           
           // Para a pergunta 2 (emojis 3D), mostrar apenas o emoji
           const isEmojiQuestion = question.includes("Quantas vezes");
@@ -55,6 +59,8 @@ export default function QuizQuestion({
               transition={{ delay: idx * 0.1, duration: 0.3 }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onMouseEnter={() => setHoveredOption(option.value)}
+              onMouseLeave={() => setHoveredOption(null)}
               onClick={() => onSelect(option.value)}
               className={`w-full p-4 rounded-2xl font-semibold transition-all duration-300 border-2 touch-manipulation flex flex-col items-center justify-center ${
                 isEmojiQuestion ? "min-h-24" : ""
@@ -64,7 +70,9 @@ export default function QuizQuestion({
                 backgroundColor: isSelected
                   ? QUIZ_COLORS.primary
                   : QUIZ_COLORS.background,
-                borderColor: isSelected
+                borderColor: isHovered
+                  ? "#4466ff"
+                  : isSelected
                   ? QUIZ_COLORS.primary
                   : QUIZ_COLORS.border,
                 color: isSelected
@@ -72,7 +80,10 @@ export default function QuizQuestion({
                   : QUIZ_COLORS.text,
                 boxShadow: isSelected
                   ? `0 8px 16px ${QUIZ_COLORS.primary}40`
+                  : isHovered
+                  ? "0 4px 12px #4466ff40"
                   : "none",
+                opacity: isHovered ? 0.95 : 1,
               }}
             >
               {isEmojiQuestion && option.emoji ? (

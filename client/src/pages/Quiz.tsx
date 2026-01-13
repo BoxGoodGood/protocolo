@@ -4,6 +4,7 @@ import { QUIZ_QUESTIONS, QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import ProgressBar from "@/components/ProgressBar";
 import QuizQuestion from "@/components/QuizQuestion";
 import ProcessingScreen from "@/components/ProcessingScreen";
+import BackButton from "@/components/BackButton";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
@@ -78,9 +79,10 @@ export default function Quiz() {
 
   return (
     <div
-      className="min-h-screen flex flex-col"
+      className="min-h-screen flex flex-col relative"
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
+      <BackButton />
       <ProgressBar current={currentQuestion + 1} total={QUIZ_QUESTIONS.length} />
 
       <div className="flex-1 flex items-center justify-center w-full">
