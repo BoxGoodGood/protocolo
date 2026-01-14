@@ -177,3 +177,10 @@
 ## Remo\u00e7\u00e3o de Se\u00e7\u00e3o de Caixas de Seguran\u00e7a
 
 - - [x] Remover seção com caixas "100% Seguro", "Privado" e "Rápido""R\u00e1pido"
+
+
+## Corre\u00e7\u00e3## Correção de Layout das Imagens em Mobile
+
+- [x] Corrigir altura das imagens
+- [x] Ajustar object-fit para melhor exibição
+- [x] Testar em diferentes tamanhos de tela
