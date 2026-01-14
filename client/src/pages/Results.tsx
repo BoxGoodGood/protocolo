@@ -168,40 +168,7 @@ export default function Results() {
           </motion.div>
         )}
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="grid grid-cols-3 gap-4 text-center py-8"
-        >
-          {[
-            { icon: "✓", text: "100% Seguro" },
-            { icon: "🔒", text: "Privado" },
-            { icon: "⚡", text: "Rápido" },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="p-4 rounded-2xl"
-              style={{ backgroundColor: QUIZ_COLORS.border }}
-            >
-              <div
-                className="text-2xl mb-2"
-                style={{ fontFamily: QUIZ_FONTS.primary }}
-              >
-                {item.icon}
-              </div>
-              <p
-                className="text-sm font-semibold"
-                style={{
-                  fontFamily: QUIZ_FONTS.secondary,
-                  color: QUIZ_COLORS.text,
-                }}
-              >
-                {item.text}
-              </p>
-            </div>
-          ))}
-        </motion.div>
+
       </div>
 
       {/* You Knew Section */}
