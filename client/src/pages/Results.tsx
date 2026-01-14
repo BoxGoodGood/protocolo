@@ -205,7 +205,10 @@ export default function Results() {
       </div>
 
       {/* You Knew Section */}
-      <YouKnewSection imageUrls={[]} />
+      <YouKnewSection imageUrls={[
+        "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/keqtvTmBOuvPoSmD.webp",
+        "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/mOMcokzZGloUqnli.webp",
+      ]} />
     </div>
   );
 }

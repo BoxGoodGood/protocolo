@@ -165,3 +165,10 @@
 - [x] Criar botão pulsante em verde
 - [x] Alterar texto do botão para "Receba o acesso agora por R$ 47,90"
 - [x] Botão aparecer apenas após vídeo terminart\u00e3o aparecer apenas ap\u00f3s v\u00eddeo terminar
+
+
+## Adi\u00e7\u00e## Adição de Imagens na Seção "Você Sabia!"
+
+- [x] Fazer upload das imagens para Supabase Storage
+- [x] Atualizar YouKnewSection com URLs das imagens
+- [x] Testar exibição das imagensu00e3o das imagens
