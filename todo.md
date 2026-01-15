@@ -184,3 +184,10 @@
 - [x] Corrigir altura das imagens
 - [x] Ajustar object-fit para melhor exibição
 - [x] Testar em diferentes tamanhos de tela
+
+
+## Substitui\u00e7\u00e3o de Imagens na Se\u00e7\u00e3o \"Voc\u00## Substituição de Imagens na Seção "Você Sabia!"
+
+- [x] Fazer upload da nova imagem
+- [x] Substituir as duas imagens anteriores por uma única
+- [x] Testar exibição em todos os dispositivos

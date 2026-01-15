@@ -173,8 +173,7 @@ export default function Results() {
 
       {/* You Knew Section */}
       <YouKnewSection imageUrls={[
-        "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/keqtvTmBOuvPoSmD.webp",
-        "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/mOMcokzZGloUqnli.webp",
+        "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/UKttMSvfEwuMKAJj.webp",
       ]} />
     </div>
   );
