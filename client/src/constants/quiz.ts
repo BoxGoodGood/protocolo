@@ -31,7 +31,6 @@ export const QUIZ_QUESTIONS = [
     options: [
       { value: "nursing", label: "Mamando (Peito ou mamadeira)" },
       { value: "rocking", label: "Sendo balançado/No colo" },
-      { value: "car", label: "No carrinho ou passeando de carro" },
       { value: "crib_alone", label: "Sozinho no berço (mas acorda logo em seguida)" },
     ],
   },

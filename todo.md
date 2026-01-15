@@ -197,3 +197,9 @@
 - [x] Fazer upload da nova imagem de mãe com bebê
 - [x] Substituir ícone anterior pela nova imagem
 - [x] Testar exibição em todos os dispositivos
+
+
+## Corre\u00e7\u00f5es ## Correções de Detalhes
+
+- [x] Remover opção "No carrinho ou passeando de carro" do quiz
+- [x] Corrigir recarga automática na página final do vídeo do v\u00eddeo

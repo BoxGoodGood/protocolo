@@ -33,6 +33,13 @@ export default function VideoPlayer({ videoUrl, onCtaReady }: VideoPlayerProps) 
         clearInterval(intervalRef.current);
       }
     };
+  }, [isCtaVisible]);
+
+  // Separate effect to call onCtaReady when CTA becomes visible
+  useEffect(() => {
+    if (isCtaVisible) {
+      onCtaReady();
+    }
   }, [isCtaVisible, onCtaReady]);
 
   const minutes = Math.floor(elapsedTime / 60);
