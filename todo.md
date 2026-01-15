@@ -191,3 +191,9 @@
 - [x] Fazer upload da nova imagem
 - [x] Substituir as duas imagens anteriores por uma única
 - [x] Testar exibição em todos os dispositivos
+
+## Substitui\u00e7\u00e3o de Imagem## Substituição de Imagem Acima da Headline
+
+- [x] Fazer upload da nova imagem de mãe com bebê
+- [x] Substituir ícone anterior pela nova imagem
+- [x] Testar exibição em todos os dispositivos
