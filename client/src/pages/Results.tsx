@@ -109,7 +109,11 @@ export default function Results() {
           transition={{ delay: 0.4 }}
           className="mb-8"
         >
-          <VideoPlayer onCtaReady={handleCtaReady} />
+          <VideoPlayer 
+            videoUrl="https://player.vimeo.com/video/1159249817?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+            onCtaReady={handleCtaReady}
+            isVertical={true}
+          />
         </motion.div>
 
         {/* Texto de espera */}

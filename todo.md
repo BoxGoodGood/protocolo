@@ -211,3 +211,10 @@
 - [x] Implementar barra de progresso falsa
 - [x] Configurar comportamento: 50% rápido, depois desacelera
 - [x] Sincronizar com tempo real do vídeou00eddeo
+
+
+## Integra\u00e7\u00## Integração da VSL do Vimeo
+
+- [x] Ajustar VideoPlayer para formato vertical 9:16
+- [x] Integrar URL do Vimeo (ID: 1159249817)
+- [x] Testar reprodução e barra de progresso

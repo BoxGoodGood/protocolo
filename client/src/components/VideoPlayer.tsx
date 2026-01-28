@@ -5,14 +5,16 @@ import { motion } from "framer-motion";
 interface VideoPlayerProps {
   videoUrl?: string;
   onCtaReady: () => void;
+  isVertical?: boolean;
 }
 
-export default function VideoPlayer({ videoUrl, onCtaReady }: VideoPlayerProps) {
+export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }: VideoPlayerProps) {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
   const [fakeProgress, setFakeProgress] = useState(0);
   const [isCtaVisible, setIsCtaVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Calculate fake progress based on video time
@@ -82,28 +84,66 @@ export default function VideoPlayer({ videoUrl, onCtaReady }: VideoPlayerProps) 
 
   return (
     <div className="w-full">
-      <div className="relative bg-black rounded-2xl overflow-hidden mb-6">
+      <div className={`relative bg-black rounded-2xl overflow-hidden mb-6 ${isVertical ? 'flex justify-center' : ''}`}>
         {videoUrl ? (
           <>
-            <video
-              ref={videoRef}
-              src={videoUrl}
-              controls
-              autoPlay
-              onLoadedMetadata={handleLoadedMetadata}
-              className="w-full h-auto max-h-96"
-              style={{ aspectRatio: "16/9" }}
-            />
-            
-            {/* Fake Progress Bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700 bg-opacity-50">
-              <motion.div
-                className="h-full bg-gradient-to-r from-blue-400 to-blue-600"
-                initial={{ width: "0%" }}
-                animate={{ width: `${fakeProgress * 100}%` }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              />
-            </div>
+            {isVertical ? (
+              // Vimeo iframe for vertical format
+              <div className="relative w-full max-w-sm mx-auto" style={{ aspectRatio: "9/16" }}>
+                <iframe
+                  ref={iframeRef}
+                  src={videoUrl}
+                  className="w-full h-full rounded-2xl"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="VSL"
+                />
+                
+                {/* Fake Progress Bar for Vimeo */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700 bg-opacity-50 rounded-b-2xl">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl"
+                    initial={{ width: "0%" }}
+                    animate={{ width: `${fakeProgress * 100}%` }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+                </div>
+              </div>
+            ) : (
+              // Regular video for horizontal format
+              <>
+                <video
+                  ref={videoRef}
+                  src={videoUrl}
+                  controls
+                  autoPlay
+                  onLoadedMetadata={handleLoadedMetadata}
+                  className="w-full h-auto max-h-96"
+                  style={{ aspectRatio: "16/9" }}
+                />
+                
+                {/* Fake Progress Bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700 bg-opacity-50">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-blue-400 to-blue-600"
+                    initial={{ width: "0%" }}
+                    animate={{ width: `${fakeProgress * 100}%` }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+                </div>
+              </>
+            )}
+
+            {/* Time indicator - only for non-vertical */}
+            {!isVertical && (
+              <div
+                className="absolute bottom-4 right-4 bg-black bg-opacity-70 px-3 py-1 rounded-full text-white text-sm"
+                style={{ fontFamily: QUIZ_FONTS.secondary }}
+              >
+                {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
+              </div>
+            )}
           </>
         ) : (
           <div
@@ -126,19 +166,11 @@ export default function VideoPlayer({ videoUrl, onCtaReady }: VideoPlayerProps) 
                   marginTop: "8px",
                 }}
               >
-                Hospede seu vídeo no Supabase Storage
+                Hospede seu vídeo no Vimeo ou Supabase
               </p>
             </div>
           </div>
         )}
-
-        {/* Time indicator */}
-        <div
-          className="absolute bottom-4 right-4 bg-black bg-opacity-70 px-3 py-1 rounded-full text-white text-sm"
-          style={{ fontFamily: QUIZ_FONTS.secondary }}
-        >
-          {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
-        </div>
       </div>
 
       {/* CTA Delay Indicator */}
