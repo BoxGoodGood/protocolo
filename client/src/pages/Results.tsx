@@ -128,23 +128,27 @@ export default function Results() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Headline - Foco em Validação */}
+            {/* Headline - Foco em Validacao */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="mb-4 md:mb-6 text-center"
+              className="mb-4 md:mb-6"
             >
-              <h1
-                className="text-3xl md:text-5xl font-black"
-                style={{
-                  fontFamily: QUIZ_FONTS.primary,
-                  color: "#4868f6",
-                  lineHeight: "1.1",
-                }}
-              >
-                🎉 Seu acesso foi liberado! 🎉
-              </h1>
+              <div className="flex items-center justify-center gap-4 md:gap-6">
+                <span className="text-2xl md:text-4xl flex-shrink-0">🎉</span>
+                <h1
+                  className="text-3xl md:text-5xl font-black text-center flex-1"
+                  style={{
+                    fontFamily: QUIZ_FONTS.primary,
+                    color: "#4868f6",
+                    lineHeight: "1.1",
+                  }}
+                >
+                  Seu acesso foi liberado!
+                </h1>
+                <span className="text-2xl md:text-4xl flex-shrink-0">🎉</span>
+              </div>
             </motion.div>
 
             {/* Subheadline */}
