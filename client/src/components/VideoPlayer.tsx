@@ -9,19 +9,52 @@ interface VideoPlayerProps {
 
 export default function VideoPlayer({ videoUrl, onCtaReady }: VideoPlayerProps) {
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [totalDuration, setTotalDuration] = useState(0);
+  const [fakeProgress, setFakeProgress] = useState(0);
   const [isCtaVisible, setIsCtaVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Calculate fake progress based on video time
+  const calculateFakeProgress = (currentTime: number, duration: number) => {
+    if (duration === 0) return 0;
+    
+    const progress = currentTime / duration; // 0 to 1
+    
+    if (progress < 0.3) {
+      // First 30% of video: bar rises to 50% quickly
+      return (progress / 0.3) * 0.5;
+    } else if (progress < 0.7) {
+      // Middle of video: rises from 50% to 80% slowly
+      return 0.5 + ((progress - 0.3) / 0.4) * 0.3;
+    } else {
+      // End of video: rises from 80% to 100%
+      return 0.8 + ((progress - 0.7) / 0.3) * 0.2;
+    }
+  };
+
+  // Handle video metadata to get duration
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      setTotalDuration(videoRef.current.duration);
+    }
+  };
 
   useEffect(() => {
     // Start tracking video time
     intervalRef.current = setInterval(() => {
       if (videoRef.current) {
-        const currentTime = Math.floor(videoRef.current.currentTime);
-        setElapsedTime(currentTime);
+        const currentTime = videoRef.current.currentTime;
+        const duration = videoRef.current.duration;
+        
+        setElapsedTime(Math.floor(currentTime));
+        
+        // Calculate and update fake progress
+        const progress = calculateFakeProgress(currentTime, duration);
+        setFakeProgress(progress);
 
         // Show CTA when delay is reached
-        if (currentTime >= CTA_DELAY && !isCtaVisible) {
+        if (Math.floor(currentTime) >= CTA_DELAY && !isCtaVisible) {
           setIsCtaVisible(true);
           onCtaReady();
         }
@@ -51,14 +84,27 @@ export default function VideoPlayer({ videoUrl, onCtaReady }: VideoPlayerProps) 
     <div className="w-full">
       <div className="relative bg-black rounded-2xl overflow-hidden mb-6">
         {videoUrl ? (
-          <video
-            ref={videoRef}
-            src={videoUrl}
-            controls
-            autoPlay
-            className="w-full h-auto max-h-96"
-            style={{ aspectRatio: "16/9" }}
-          />
+          <>
+            <video
+              ref={videoRef}
+              src={videoUrl}
+              controls
+              autoPlay
+              onLoadedMetadata={handleLoadedMetadata}
+              className="w-full h-auto max-h-96"
+              style={{ aspectRatio: "16/9" }}
+            />
+            
+            {/* Fake Progress Bar */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700 bg-opacity-50">
+              <motion.div
+                className="h-full bg-gradient-to-r from-blue-400 to-blue-600"
+                initial={{ width: "0%" }}
+                animate={{ width: `${fakeProgress * 100}%` }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+            </div>
+          </>
         ) : (
           <div
             className="w-full h-96 flex items-center justify-center text-white text-center"

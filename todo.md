@@ -203,3 +203,11 @@
 
 - [x] Remover opção "No carrinho ou passeando de carro" do quiz
 - [x] Corrigir recarga automática na página final do vídeo do v\u00eddeo
+
+
+## Integra\u00e7\## Integração da VSL e Barra de Progresso Falsa
+
+- [ ] Integrar URL do vídeo VSL (YouTube/Vimeo)
+- [x] Implementar barra de progresso falsa
+- [x] Configurar comportamento: 50% rápido, depois desacelera
+- [x] Sincronizar com tempo real do vídeou00eddeo
