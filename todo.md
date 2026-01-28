@@ -186,10 +186,15 @@
 - [x] Testar em diferentes tamanhos de tela
 
 
-## Substitui\u00e7\u00e3o de Imagens na Se\u00e7\u00e3o \"Voc\u00## Substituição de Imagens na Seção "Você Sabia!"
+## Substitui\u00e7\u00e3o de Imagens na Se\u00e7\u00e3o \"Voc\u00## Substituição de Imagem da Seção "Você Sabia!"
 
 - [x] Fazer upload da nova imagem
-- [x] Substituir as duas imagens anteriores por uma única
+- [x] Substituir imagem anterior
+
+## Substituição de Imagem de Métodos de Pagamento
+
+- [x] Fazer upload da nova imagem de pagamento
+- [x] Substituir URL anterior pela nova imagem no Results.tsxs anteriores por uma única
 - [x] Testar exibição em todos os dispositivos
 
 ## Substitui\u00e7\u00e3o de Imagem## Substituição de Imagem Acima da Headline

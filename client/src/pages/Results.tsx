@@ -280,7 +280,7 @@ export default function Results() {
               {/* Payment Methods */}
               <div className="flex justify-center items-center mt-4">
                 <img 
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/JINdHFQdHSyqpgkj.webp" 
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/rSYOXPvggmmPhFxs.webp" 
                   alt="Métodos de pagamento" 
                   className="h-12 md:h-16 object-contain"
                 />
