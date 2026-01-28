@@ -234,3 +234,9 @@
 
 - [x] Corrigir detec\u00e7\u00e3o de t\u00e9rmino do v\u00eddeo Vimeo
 - [x] Disparar CTA quando v\u00eddeo termina
+
+
+## Ocultar Header e V\u00eddeo Ap\u00f3s T\u00e9rmino
+- [x] Remover header após CTA aparecer
+- [x] Remover vídeo após CTA aparecer
+- [x] Manter apenas conteúdo de conversão\u00fado de convers\u00e3o

@@ -77,47 +77,51 @@ export default function Results() {
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
       <div className="max-w-2xl mx-auto px-4 py-16">
-        {/* Texto explicativo com palavras destacadas */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-12 text-center"
-        >
-          <p
-            className="text-lg md:text-xl leading-relaxed"
-            style={{
-              fontFamily: QUIZ_FONTS.secondary,
-              color: QUIZ_COLORS.text,
-            }}
+        {/* Texto explicativo - Hidden after CTA */}
+        {!showCta && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mb-12 text-center"
           >
-            Assista abaixo ao{" "}
-            <span style={{ color: "#4868f6", fontWeight: "600" }}>
-              passo a passo validado
-            </span>{" "}
-            por milhares de mães para recuperar suas noites e conquistar a{" "}
-            <span style={{ color: "#4868f6", fontWeight: "600" }}>
-              autonomia de sono
-            </span>{" "}
-            do seu bebê.
-          </p>
-        </motion.div>
+            <p
+              className="text-lg md:text-xl leading-relaxed"
+              style={{
+                fontFamily: QUIZ_FONTS.secondary,
+                color: QUIZ_COLORS.text,
+              }}
+            >
+              Assista abaixo ao{" "}
+              <span style={{ color: "#4868f6", fontWeight: "600" }}>
+                passo a passo validado
+              </span>{" "}
+              por milhares de mães para recuperar suas noites e conquistar a{" "}
+              <span style={{ color: "#4868f6", fontWeight: "600" }}>
+                autonomia de sono
+              </span>{" "}
+              do seu bebê.
+            </p>
+          </motion.div>
+        )}
 
-        {/* VSL Video Player */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mb-8"
-        >
-          <VideoPlayer 
-            videoUrl="https://player.vimeo.com/video/1159249817?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
-            onCtaReady={handleCtaReady}
-            isVertical={true}
-          />
-        </motion.div>
+        {/* VSL Video Player - Hidden after CTA */}
+        {!showCta && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-8"
+          >
+            <VideoPlayer 
+              videoUrl="https://player.vimeo.com/video/1159249817?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+              onCtaReady={handleCtaReady}
+              isVertical={true}
+            />
+          </motion.div>
+        )}
 
-        {/* Conteúdo pós-vídeo */}
+        {/* Conteúdo pós-vídeo - Only shown after CTA */}
         {showCta && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -244,7 +248,7 @@ export default function Results() {
         )}
       </div>
 
-      {/* You Knew Section - always at bottom */}
+      {/* You Knew Section - always at bottom when CTA is shown */}
       {showCta && (
         <YouKnewSection imageUrls={[
           "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/UKttMSvfEwuMKAJj.webp",
