@@ -194,7 +194,13 @@
 ## Substituição de Imagem de Métodos de Pagamento
 
 - [x] Fazer upload da nova imagem de pagamento
-- [x] Substituir URL anterior pela nova imagem no Results.tsxs anteriores por uma única
+- [x] Substituir URL anterior pela nova imagem no Results.tsx
+
+## Alteração de Texto de Segurança e Adição de Rodapé
+
+- [x] Alterar texto de segurança para "Compra Segura • Acesso Imediato • Garantia de 7 dias"
+- [x] Adicionar rodapé com aviso legal
+- [x] Adicionar créditos e copyrights anteriores por uma única
 - [x] Testar exibição em todos os dispositivos
 
 ## Substitui\u00e7\u00e3o de Imagem## Substituição de Imagem Acima da Headline
