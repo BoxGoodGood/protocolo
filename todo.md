@@ -228,3 +228,9 @@
 - [x] Adicionar botão "QUERO O PROTOCOLO + BÔNUS POR R$ 47,90"
 - [x] Adicionar checklist de segurança (3 itens)
 - [x] Reorganizar seção "Você Sabia!" no finalr se\u00e7\u00e3o \"Voc\u00ea Sabia!\" no final
+
+
+## Corre\u00e7\u00e3o de Evento de T\u00e9rmino do V\u00eddeo
+
+- [x] Corrigir detec\u00e7\u00e3o de t\u00e9rmino do v\u00eddeo Vimeo
+- [x] Disparar CTA quando v\u00eddeo termina

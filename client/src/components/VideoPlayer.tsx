@@ -1,11 +1,17 @@
 import { useState, useEffect, useRef } from "react";
-import { QUIZ_COLORS, QUIZ_FONTS, CTA_DELAY } from "@/constants/quiz";
+import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import { motion } from "framer-motion";
 
 interface VideoPlayerProps {
   videoUrl?: string;
   onCtaReady: () => void;
   isVertical?: boolean;
+}
+
+declare global {
+  interface Window {
+    Vimeo?: any;
+  }
 }
 
 export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }: VideoPlayerProps) {
@@ -15,6 +21,7 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
   const [isCtaVisible, setIsCtaVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const vimeoPlayerRef = useRef<any>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Calculate fake progress based on video time
@@ -42,33 +49,90 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
     }
   };
 
+  // Initialize Vimeo player
   useEffect(() => {
-    // Start tracking video time
-    intervalRef.current = setInterval(() => {
-      if (videoRef.current) {
-        const currentTime = videoRef.current.currentTime;
-        const duration = videoRef.current.duration;
+    if (isVertical && iframeRef.current) {
+      // Load Vimeo Player API
+      if (!window.Vimeo) {
+        const script = document.createElement("script");
+        script.src = "https://player.vimeo.com/api/player.js";
+        script.async = true;
+        document.body.appendChild(script);
         
-        setElapsedTime(Math.floor(currentTime));
-        
-        // Calculate and update fake progress
-        const progress = calculateFakeProgress(currentTime, duration);
-        setFakeProgress(progress);
+        script.onload = () => {
+          if (window.Vimeo) {
+            initVimeoPlayer();
+          }
+        };
+      } else {
+        initVimeoPlayer();
+      }
+    }
+  }, [isVertical]);
 
-        // Show CTA when delay is reached
-        if (Math.floor(currentTime) >= CTA_DELAY && !isCtaVisible) {
-          setIsCtaVisible(true);
-          onCtaReady();
+  const initVimeoPlayer = () => {
+    if (iframeRef.current && window.Vimeo) {
+      try {
+        const player = new window.Vimeo.Player(iframeRef.current);
+        vimeoPlayerRef.current = player;
+
+        // Get video duration
+        player.getDuration().then((duration: number) => {
+          setTotalDuration(duration);
+        });
+
+        // Track video time
+        player.on("timeupdate", (data: any) => {
+          const currentTime = data.seconds;
+          setElapsedTime(Math.floor(currentTime));
+          
+          // Calculate and update fake progress
+          const progress = calculateFakeProgress(currentTime, data.duration);
+          setFakeProgress(progress);
+        });
+
+        // Detect when video ends
+        player.on("ended", () => {
+          if (!isCtaVisible) {
+            setIsCtaVisible(true);
+            onCtaReady();
+          }
+        });
+      } catch (error) {
+        console.error("Error initializing Vimeo player:", error);
+      }
+    }
+  };
+
+  // For HTML5 video tracking
+  useEffect(() => {
+    if (!isVertical) {
+      intervalRef.current = setInterval(() => {
+        if (videoRef.current) {
+          const currentTime = videoRef.current.currentTime;
+          const duration = videoRef.current.duration;
+          
+          setElapsedTime(Math.floor(currentTime));
+          
+          // Calculate and update fake progress
+          const progress = calculateFakeProgress(currentTime, duration);
+          setFakeProgress(progress);
+
+          // Check if video has ended
+          if (videoRef.current.ended && !isCtaVisible) {
+            setIsCtaVisible(true);
+            onCtaReady();
+          }
         }
-      }
-    }, 100);
+      }, 100);
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isCtaVisible]);
+      return () => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      };
+    }
+  }, [isCtaVisible, isVertical]);
 
   // Separate effect to call onCtaReady when CTA becomes visible
   useEffect(() => {
@@ -79,8 +143,6 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
 
   const minutes = Math.floor(elapsedTime / 60);
   const seconds = elapsedTime % 60;
-  const delayMinutes = Math.floor(CTA_DELAY / 60);
-  const delaySeconds = CTA_DELAY % 60;
 
   return (
     <div className="w-full">
@@ -173,46 +235,23 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
         )}
       </div>
 
-      {/* CTA Delay Indicator */}
-      {!isCtaVisible && (
+      {/* Loading message while video is playing */}
+      {!isCtaVisible && isVertical && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 rounded-2xl text-center"
-          style={{
-            backgroundColor: QUIZ_COLORS.accent,
-            fontFamily: QUIZ_FONTS.secondary,
-            color: QUIZ_COLORS.text,
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="mb-6 text-center"
         >
-          <p className="font-semibold">
-            Seu botão de oferta aparecerá em{" "}
-            {String(delayMinutes).padStart(2, "0")}:
-            {String(delaySeconds).padStart(2, "0")}
-          </p>
-          <p className="text-sm mt-1">
-            Tempo atual: {String(minutes).padStart(2, "0")}:
-            {String(seconds).padStart(2, "0")}
-          </p>
-        </motion.div>
-      )}
-
-      {/* CTA Button - appears after delay */}
-      {isCtaVisible && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <button
-            className="w-full p-4 rounded-2xl font-bold text-lg text-white transition-all duration-300 hover:shadow-lg"
+          <p
+            className="text-lg"
             style={{
-              fontFamily: QUIZ_FONTS.primary,
-              backgroundColor: QUIZ_COLORS.primary,
+              fontFamily: QUIZ_FONTS.secondary,
+              color: QUIZ_COLORS.lightText,
             }}
           >
-            Quero Acessar a Oferta Especial
-          </button>
+            Aguarde o término do vídeo... ⏳
+          </p>
         </motion.div>
       )}
     </div>
