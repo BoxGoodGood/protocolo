@@ -297,38 +297,31 @@ export default function Results() {
         ]} />
       )}
 
-      {/* Footer */}
-      <footer className="mt-16 md:mt-24 py-8 md:py-12 border-t border-gray-200">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <p
-            className="text-xs md:text-sm leading-relaxed mb-4"
-            style={{
-              fontFamily: QUIZ_FONTS.secondary,
-              color: "#999",
-            }}
-          >
-            Este é um material educacional sobre rotina de sono para bebês. Não substitui orientação médica ou pediátrica.
-          </p>
-          <p
-            className="text-xs md:text-sm leading-relaxed mb-4"
-            style={{
-              fontFamily: QUIZ_FONTS.secondary,
-              color: "#999",
-            }}
-          >
-            Feito para mamães que merecem descanso ❤️
-          </p>
-          <p
-            className="text-xs md:text-sm"
-            style={{
-              fontFamily: QUIZ_FONTS.secondary,
-              color: "#bbb",
-            }}
-          >
-            © 2025 Protocolo Neonatal. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
+      {/* Footer - only shown on last page when CTA is visible */}
+      {showCta && (
+        <footer className="mt-16 md:mt-24 py-8 md:py-12 border-t border-gray-200">
+          <div className="max-w-2xl mx-auto px-4 text-center">
+            <p
+              className="text-xs md:text-sm leading-relaxed mb-4"
+              style={{
+                fontFamily: QUIZ_FONTS.secondary,
+                color: "#999",
+              }}
+            >
+              Feito para mamães que merecem descanso ❤️
+            </p>
+            <p
+              className="text-xs md:text-sm"
+              style={{
+                fontFamily: QUIZ_FONTS.secondary,
+                color: "#bbb",
+              }}
+            >
+              © 2025 Protocolo Neonatal. Todos os direitos reservados.
+            </p>
+          </div>
+        </footer>
+      )}
     </div>
   );
 }

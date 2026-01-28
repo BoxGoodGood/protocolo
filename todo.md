@@ -200,7 +200,9 @@
 
 - [x] Alterar texto de segurança para "Compra Segura • Acesso Imediato • Garantia de 7 dias"
 - [x] Adicionar rodapé com aviso legal
-- [x] Adicionar créditos e copyrights anteriores por uma única
+- [x] Adicionar créditos e copyright
+- [x] Remover aviso legal do rodapé
+- [x] Fazer rodapé aparecer apenas na última páginas anteriores por uma única
 - [x] Testar exibição em todos os dispositivos
 
 ## Substitui\u00e7\u00e3o de Imagem## Substituição de Imagem Acima da Headline
