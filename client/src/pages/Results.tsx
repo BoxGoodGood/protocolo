@@ -253,11 +253,11 @@ export default function Results() {
                   color: "white",
                 }}
               >
-                <div className="text-lg md:text-2xl font-black mb-1 md:mb-2 leading-tight">
+                <div className="text-lg md:text-2xl font-black mb-1 md:mb-2 leading-tight text-center">
                   QUERO MEU ACESSO AGORA
                 </div>
                 <div
-                  className="text-xs md:text-base font-semibold"
+                  className="text-xs md:text-base font-semibold text-center"
                   style={{
                     opacity: 0.95,
                   }}
