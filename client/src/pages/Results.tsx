@@ -76,7 +76,7 @@ export default function Results() {
       className="min-h-screen relative"
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
-      <div className="max-w-2xl mx-auto px-4 py-16">
+      <div className="max-w-2xl mx-auto px-4 py-8 md:py-16">
         {/* Texto explicativo - Hidden after CTA */}
         {!showCta && (
           <motion.div
@@ -133,13 +133,14 @@ export default function Results() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="mb-6 text-center"
+              className="mb-4 md:mb-6 text-center"
             >
               <h1
-                className="text-4xl md:text-5xl font-black mb-2"
+                className="text-3xl md:text-5xl font-black"
                 style={{
                   fontFamily: QUIZ_FONTS.primary,
                   color: "#4868f6",
+                  lineHeight: "1.1",
                 }}
               >
                 🎉 Seu acesso foi liberado! 🎉
@@ -151,10 +152,10 @@ export default function Results() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mb-8 text-center"
+              className="mb-6 md:mb-8 text-center px-2"
             >
               <p
-                className="text-lg md:text-xl"
+                className="text-base md:text-xl leading-relaxed"
                 style={{
                   fontFamily: QUIZ_FONTS.secondary,
                   color: QUIZ_COLORS.text,
@@ -169,11 +170,11 @@ export default function Results() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="mb-8 text-center"
+              className="mb-6 md:mb-8 text-center"
             >
-              <div className="mb-3">
+              <div className="mb-2 md:mb-3">
                 <p
-                  className="text-sm md:text-base"
+                  className="text-xs md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: QUIZ_FONTS.secondary,
                     color: "#999",
@@ -192,7 +193,7 @@ export default function Results() {
               </div>
               <div>
                 <p
-                  className="text-xl md:text-2xl font-bold"
+                  className="text-lg md:text-2xl font-bold mb-1 md:mb-2 whitespace-nowrap"
                   style={{
                     fontFamily: QUIZ_FONTS.primary,
                     color: QUIZ_COLORS.primary,
@@ -201,13 +202,14 @@ export default function Results() {
                   Hoje por apenas:
                 </p>
                 <p
-                  className="text-2xl md:text-3xl font-black mt-2"
+                  className="text-2xl md:text-4xl font-black"
                   style={{
                     fontFamily: QUIZ_FONTS.primary,
                     color: "#22c55e",
+                    lineHeight: "1.1",
                   }}
                 >
-                  4x de R$ 13,04 ou R$ 47,90 à vista
+                  R$ 47,90 à vista
                 </p>
               </div>
             </motion.div>
@@ -217,7 +219,7 @@ export default function Results() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="mb-6"
+              className="mb-4 md:mb-6"
             >
               <style>{`
                 @keyframes pulse-glow {
@@ -236,18 +238,18 @@ export default function Results() {
               `}</style>
               <button
                 onClick={handleCtaClick}
-                className="pulse-button w-full p-6 rounded-2xl font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+                className="pulse-button w-full p-4 md:p-6 rounded-2xl font-bold transition-all duration-300 hover:scale-105 active:scale-95"
                 style={{
                   fontFamily: QUIZ_FONTS.primary,
                   backgroundColor: "#25D366",
                   color: "white",
                 }}
               >
-                <div className="text-xl md:text-2xl font-black mb-2">
+                <div className="text-lg md:text-2xl font-black mb-1 md:mb-2 leading-tight">
                   QUERO LIBERAR MEU ACESSO AGORA
                 </div>
                 <div
-                  className="text-sm md:text-base font-semibold"
+                  className="text-xs md:text-base font-semibold"
                   style={{
                     opacity: 0.95,
                   }}
@@ -262,10 +264,10 @@ export default function Results() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-center mb-12"
+              className="text-center mb-8 md:mb-12 px-2"
             >
               <p
-                className="text-sm md:text-base"
+                className="text-xs md:text-base leading-relaxed"
                 style={{
                   fontFamily: QUIZ_FONTS.secondary,
                   color: "#666",

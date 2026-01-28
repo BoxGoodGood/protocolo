@@ -251,3 +251,11 @@
 - [x] Refinar botão com subtexto de oferta
 - [x] Aplicar efeito de brilho no botão
 - [x] Adicionar texto de segurança abaixo do botãoseguran\u00e7a abaixo do bot\u00e3o
+
+
+## Ajustes de Mobile e Pre\u00e7o
+
+- [ ] Ajustar espa\u00- [x] Ajustar espaçamentos para mobile
+- [x] Remover opção de parcelamento
+- [x] Destacar "Hoje por apenas:"
+- [x] Evitar quebras de linha
