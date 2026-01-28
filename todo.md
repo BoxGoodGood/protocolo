@@ -259,3 +259,9 @@
 - [x] Remover opção de parcelamento
 - [x] Destacar "Hoje por apenas:"
 - [x] Evitar quebras de linha
+
+## Melhorias Finais da P\u00e1gina de Convers\u00e3o
+
+- [ ] Adic- [x] Adicionar tarja azul no texto "Hoje por apenas:"
+- [x] Alterar texto do botão para "QUERO MEU ACESSO AGORA"
+- [x] Adicionar logótipos de pagamento (PIX, Visa, Mastercard, Elo)

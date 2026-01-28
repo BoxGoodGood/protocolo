@@ -193,16 +193,17 @@ export default function Results() {
               </div>
               <div>
                 <p
-                  className="text-lg md:text-2xl font-bold mb-1 md:mb-2 whitespace-nowrap"
+                  className="text-lg md:text-2xl font-bold mb-1 md:mb-2 whitespace-nowrap inline-block px-3 py-1 rounded"
                   style={{
                     fontFamily: QUIZ_FONTS.primary,
-                    color: QUIZ_COLORS.primary,
+                    color: "white",
+                    backgroundColor: "#4868f6",
                   }}
                 >
                   Hoje por apenas:
                 </p>
                 <p
-                  className="text-2xl md:text-4xl font-black"
+                  className="text-2xl md:text-4xl font-black mt-2 md:mt-3"
                   style={{
                     fontFamily: QUIZ_FONTS.primary,
                     color: "#22c55e",
@@ -246,7 +247,7 @@ export default function Results() {
                 }}
               >
                 <div className="text-lg md:text-2xl font-black mb-1 md:mb-2 leading-tight">
-                  QUERO LIBERAR MEU ACESSO AGORA
+                  QUERO MEU ACESSO AGORA
                 </div>
                 <div
                   className="text-xs md:text-base font-semibold"
@@ -259,7 +260,7 @@ export default function Results() {
               </button>
             </motion.div>
 
-            {/* Texto de Segurança */}
+            {/* Texto de Segurança e Métodos de Pagamento */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -267,7 +268,7 @@ export default function Results() {
               className="text-center mb-8 md:mb-12 px-2"
             >
               <p
-                className="text-xs md:text-base leading-relaxed"
+                className="text-xs md:text-base leading-relaxed mb-4"
                 style={{
                   fontFamily: QUIZ_FONTS.secondary,
                   color: "#666",
@@ -275,6 +276,22 @@ export default function Results() {
               >
                 Compra 100% Segura • Acesso Imediato • Garantia de 7 dias
               </p>
+              
+              {/* Payment Methods */}
+              <div className="flex justify-center items-center gap-3 md:gap-4 flex-wrap">
+                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
+                  <span className="text-xs md:text-sm font-bold text-blue-600">PIX</span>
+                </div>
+                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
+                  <span className="text-xs md:text-sm font-bold" style={{ color: "#1434CB" }}>VISA</span>
+                </div>
+                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
+                  <span className="text-xs md:text-sm font-bold" style={{ color: "#EB001B" }}>MC</span>
+                </div>
+                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
+                  <span className="text-xs md:text-sm font-bold" style={{ color: "#5C3D9F" }}>ELO</span>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
