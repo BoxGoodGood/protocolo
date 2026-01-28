@@ -128,66 +128,106 @@ export default function Results() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Mensagem de acesso liberado */}
+            {/* Headline - Foco em Validação */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="mb-6 text-center"
+            >
+              <h1
+                className="text-4xl md:text-5xl font-black mb-2"
+                style={{
+                  fontFamily: QUIZ_FONTS.primary,
+                  color: "#4868f6",
+                }}
+              >
+                🎉 Seu acesso foi liberado! 🎉
+              </h1>
+            </motion.div>
+
+            {/* Subheadline */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.4 }}
               className="mb-8 text-center"
             >
               <p
-                className="text-2xl font-bold mb-4"
-                style={{
-                  fontFamily: QUIZ_FONTS.primary,
-                  color: QUIZ_COLORS.primary,
-                }}
-              >
-                Seu acesso foi liberado! 🎉
-              </p>
-              <p
-                className="text-lg"
+                className="text-lg md:text-xl"
                 style={{
                   fontFamily: QUIZ_FONTS.secondary,
                   color: QUIZ_COLORS.text,
                 }}
               >
-                Clique no botão abaixo
+                Seu acesso ao Protocolo Completo + Bônus Grátis já está pronto.
               </p>
             </motion.div>
 
-            {/* Setas azuis apontando para baixo */}
+            {/* Texto de Preço com Desconto */}
             <motion.div
-              className="text-center mb-6"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mb-8 text-center"
             >
-              <div
-                style={{
-                  fontSize: "32px",
-                  color: QUIZ_COLORS.primary,
-                  lineHeight: "1",
-                }}
-              >
-                ↓ ↓ ↓
+              <div className="mb-3">
+                <p
+                  className="text-sm md:text-base"
+                  style={{
+                    fontFamily: QUIZ_FONTS.secondary,
+                    color: "#999",
+                  }}
+                >
+                  De{" "}
+                  <span
+                    style={{
+                      textDecoration: "line-through",
+                      fontWeight: "600",
+                    }}
+                  >
+                    R$ 297,90
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p
+                  className="text-xl md:text-2xl font-bold"
+                  style={{
+                    fontFamily: QUIZ_FONTS.primary,
+                    color: QUIZ_COLORS.primary,
+                  }}
+                >
+                  Hoje por apenas:
+                </p>
+                <p
+                  className="text-2xl md:text-3xl font-black mt-2"
+                  style={{
+                    fontFamily: QUIZ_FONTS.primary,
+                    color: "#22c55e",
+                  }}
+                >
+                  4x de R$ 13,04 ou R$ 47,90 à vista
+                </p>
               </div>
             </motion.div>
 
-            {/* Botão CTA pulsante */}
+            {/* Botão CTA com Glow */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mb-8"
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mb-6"
             >
               <style>{`
                 @keyframes pulse-glow {
                   0%, 100% {
                     opacity: 1;
-                    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3);
+                    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
                   }
                   50% {
-                    opacity: 0.8;
-                    box-shadow: 0 0 30px rgba(34, 197, 94, 0.7), 0 0 60px rgba(34, 197, 94, 0.4);
+                    opacity: 0.95;
+                    box-shadow: 0 0 30px rgba(34, 197, 94, 0.7), 0 0 60px rgba(34, 197, 94, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.3);
                   }
                 }
                 .pulse-button {
@@ -196,53 +236,43 @@ export default function Results() {
               `}</style>
               <button
                 onClick={handleCtaClick}
-                className="pulse-button w-full p-6 rounded-2xl font-bold text-xl text-white transition-all duration-300 hover:scale-105"
+                className="pulse-button w-full p-6 rounded-2xl font-bold transition-all duration-300 hover:scale-105 active:scale-95"
                 style={{
                   fontFamily: QUIZ_FONTS.primary,
-                  backgroundColor: "#22c55e",
+                  backgroundColor: "#25D366",
+                  color: "white",
                 }}
               >
-                QUERO O PROTOCOLO + BÔNUS POR R$ 47,90
+                <div className="text-xl md:text-2xl font-black mb-2">
+                  QUERO LIBERAR MEU ACESSO AGORA
+                </div>
+                <div
+                  className="text-sm md:text-base font-semibold"
+                  style={{
+                    opacity: 0.95,
+                  }}
+                >
+                  Oferta Única: R$ 47,90 + Bônus Grátis
+                </div>
               </button>
             </motion.div>
 
-            {/* Checklist de segurança */}
+            {/* Texto de Segurança */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="mb-12 space-y-3"
+              transition={{ delay: 0.8 }}
+              className="text-center mb-12"
             >
-              <div
-                className="flex items-center gap-3"
+              <p
+                className="text-sm md:text-base"
                 style={{
                   fontFamily: QUIZ_FONTS.secondary,
-                  color: QUIZ_COLORS.text,
+                  color: "#666",
                 }}
               >
-                <span className="text-lg">🔒</span>
-                <span>Compra 100% Segura e Acesso Imediato.</span>
-              </div>
-              <div
-                className="flex items-center gap-3"
-                style={{
-                  fontFamily: QUIZ_FONTS.secondary,
-                  color: QUIZ_COLORS.text,
-                }}
-              >
-                <span className="text-lg">🛡️</span>
-                <span>Garantia de 7 dias ou seu dinheiro de volta.</span>
-              </div>
-              <div
-                className="flex items-center gap-3"
-                style={{
-                  fontFamily: QUIZ_FONTS.secondary,
-                  color: QUIZ_COLORS.text,
-                }}
-              >
-                <span className="text-lg">⚡</span>
-                <span>Acesso enviado no seu e-mail agora.</span>
-              </div>
+                Compra 100% Segura • Acesso Imediato • Garantia de 7 dias
+              </p>
             </motion.div>
           </motion.div>
         )}
