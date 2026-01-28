@@ -306,7 +306,7 @@ export default function Results() {
 
       {/* Footer - only shown on last page when CTA is visible */}
       {showCta && (
-        <footer className="mt-16 md:mt-24 py-8 md:py-12 border-t border-gray-200">
+        <footer className="mt-4 md:mt-6 py-4 md:py-6 border-t border-gray-200">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <p
               className="text-xs md:text-sm leading-relaxed mb-4"

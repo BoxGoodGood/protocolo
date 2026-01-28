@@ -204,7 +204,8 @@
 - [x] Remover aviso legal do rodapé
 - [x] Fazer rodapé aparecer apenas na última página
 - [x] Melhorar alinhamento do cabeçalho com ícones nas laterais
-- [x] Conectar link de checkout da Hotmart ao botão CTAs anteriores por uma única
+- [x] Conectar link de checkout da Hotmart ao botão CTA
+- [x] Diminuir espaçamento do rodapés anteriores por uma única
 - [x] Testar exibição em todos os dispositivos
 
 ## Substitui\u00e7\u00e3o de Imagem## Substituição de Imagem Acima da Headline
