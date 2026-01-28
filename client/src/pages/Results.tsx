@@ -241,9 +241,12 @@ export default function Results() {
                   animation: pulse-glow 2s ease-in-out infinite;
                 }
               `}</style>
-              <button
+              <a
+                href="https://pay.hotmart.com/J103234260Q?checkoutMode=10"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={handleCtaClick}
-                className="pulse-button w-full p-4 md:p-6 rounded-2xl font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+                className="pulse-button block w-full p-4 md:p-6 rounded-2xl font-bold transition-all duration-300 hover:scale-105 active:scale-95 no-underline"
                 style={{
                   fontFamily: QUIZ_FONTS.primary,
                   backgroundColor: "#25D366",
@@ -259,9 +262,9 @@ export default function Results() {
                     opacity: 0.95,
                   }}
                 >
-                  Oferta Única: R$ 47,90 + Bônus Grátis
+                  Oferta Única: R$ 47,90 + Bônus Gratis
                 </div>
-              </button>
+              </a>
             </motion.div>
 
             {/* Texto de Segurança e Métodos de Pagamento */}
