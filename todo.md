@@ -271,3 +271,9 @@
 
 - [ ]- [x] Fazer upload da imagem de métodos de pagamento
 - [x] Substituir logotipos individuais pela imagem
+
+
+## Substitui\u00e7\u00e3o de Imagem da Se\u00e7\u00e3o \"Voc\u00ea Sabia!\"
+
+- [x] Fazer upload da nova imagem
+- [x] Substituir imagem anterior

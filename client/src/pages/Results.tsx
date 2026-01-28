@@ -293,7 +293,7 @@ export default function Results() {
       {/* You Knew Section - always at bottom when CTA is shown */}
       {showCta && (
         <YouKnewSection imageUrls={[
-          "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/UKttMSvfEwuMKAJj.webp",
+          "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/baecVWdpacOPDLjq.webp",
         ]} />
       )}
     </div>
