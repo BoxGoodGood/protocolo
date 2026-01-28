@@ -265,3 +265,9 @@
 - [ ] Adic- [x] Adicionar tarja azul no texto "Hoje por apenas:"
 - [x] Alterar texto do botão para "QUERO MEU ACESSO AGORA"
 - [x] Adicionar logótipos de pagamento (PIX, Visa, Mastercard, Elo)
+
+
+## Substitui\u00e7\u00e3o de Log\u00f3tipos de Pagamento
+
+- [ ]- [x] Fazer upload da imagem de métodos de pagamento
+- [x] Substituir logotipos individuais pela imagem

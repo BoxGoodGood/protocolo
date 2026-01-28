@@ -278,19 +278,12 @@ export default function Results() {
               </p>
               
               {/* Payment Methods */}
-              <div className="flex justify-center items-center gap-3 md:gap-4 flex-wrap">
-                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
-                  <span className="text-xs md:text-sm font-bold text-blue-600">PIX</span>
-                </div>
-                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
-                  <span className="text-xs md:text-sm font-bold" style={{ color: "#1434CB" }}>VISA</span>
-                </div>
-                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
-                  <span className="text-xs md:text-sm font-bold" style={{ color: "#EB001B" }}>MC</span>
-                </div>
-                <div className="flex items-center justify-center w-12 h-8 md:w-14 md:h-10 bg-white rounded border border-gray-200">
-                  <span className="text-xs md:text-sm font-bold" style={{ color: "#5C3D9F" }}>ELO</span>
-                </div>
+              <div className="flex justify-center items-center mt-4">
+                <img 
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/JINdHFQdHSyqpgkj.webp" 
+                  alt="Métodos de pagamento" 
+                  className="h-12 md:h-16 object-contain"
+                />
               </div>
             </motion.div>
           </motion.div>
