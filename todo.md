@@ -218,3 +218,13 @@
 - [x] Ajustar VideoPlayer para formato vertical 9:16
 - [x] Integrar URL do Vimeo (ID: 1159249817)
 - [x] Testar reprodução e barra de progresso
+
+
+## Reorganiza\u00e7\u00e3o da P\u00e1gi## Reorganização da Página de Resultados - VSL e Pós-Vídeo
+
+- [x] Mostrar apenas header e VSL durante reprodução
+- [x] Adicionar conteúdo pós-vídeo: "seu acesso foi liberado"
+- [x] Adicionar setas azuis apontando para baixo
+- [x] Adicionar botão "QUERO O PROTOCOLO + BÔNUS POR R$ 47,90"
+- [x] Adicionar checklist de segurança (3 itens)
+- [x] Reorganizar seção "Você Sabia!" no finalr se\u00e7\u00e3o \"Voc\u00ea Sabia!\" no final

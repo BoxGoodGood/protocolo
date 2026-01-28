@@ -103,6 +103,7 @@ export default function Results() {
           </p>
         </motion.div>
 
+        {/* VSL Video Player */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,69 +117,139 @@ export default function Results() {
           />
         </motion.div>
 
-        {/* Texto de espera */}
-        {!showCta && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mb-8 text-center"
-          >
-            <p
-              className="text-lg"
-              style={{
-                fontFamily: QUIZ_FONTS.secondary,
-                color: QUIZ_COLORS.lightText,
-              }}
-            >
-              o acesso será liberado após, a explicação do vídeo ⏳
-            </p>
-          </motion.div>
-        )}
-
-        {/* Botão CTA pulsante em verde */}
+        {/* Conteúdo pós-vídeo */}
         {showCta && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8"
           >
-            <style>{`
-              @keyframes pulse-glow {
-                0%, 100% {
-                  opacity: 1;
-                  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3);
-                }
-                50% {
-                  opacity: 0.8;
-                  box-shadow: 0 0 30px rgba(34, 197, 94, 0.7), 0 0 60px rgba(34, 197, 94, 0.4);
-                }
-              }
-              .pulse-button {
-                animation: pulse-glow 2s ease-in-out infinite;
-              }
-            `}</style>
-            <button
-              onClick={handleCtaClick}
-              className="pulse-button w-full p-6 rounded-2xl font-bold text-xl text-white transition-all duration-300 hover:scale-105"
-              style={{
-                fontFamily: QUIZ_FONTS.primary,
-                backgroundColor: "#22c55e",
-              }}
+            {/* Mensagem de acesso liberado */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="mb-8 text-center"
             >
-              Receba o acesso agora por R$ 47,90
-            </button>
+              <p
+                className="text-2xl font-bold mb-4"
+                style={{
+                  fontFamily: QUIZ_FONTS.primary,
+                  color: QUIZ_COLORS.primary,
+                }}
+              >
+                Seu acesso foi liberado! 🎉
+              </p>
+              <p
+                className="text-lg"
+                style={{
+                  fontFamily: QUIZ_FONTS.secondary,
+                  color: QUIZ_COLORS.text,
+                }}
+              >
+                Clique no botão abaixo
+              </p>
+            </motion.div>
+
+            {/* Setas azuis apontando para baixo */}
+            <motion.div
+              className="text-center mb-6"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <div
+                style={{
+                  fontSize: "32px",
+                  color: QUIZ_COLORS.primary,
+                  lineHeight: "1",
+                }}
+              >
+                ↓ ↓ ↓
+              </div>
+            </motion.div>
+
+            {/* Botão CTA pulsante */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mb-8"
+            >
+              <style>{`
+                @keyframes pulse-glow {
+                  0%, 100% {
+                    opacity: 1;
+                    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3);
+                  }
+                  50% {
+                    opacity: 0.8;
+                    box-shadow: 0 0 30px rgba(34, 197, 94, 0.7), 0 0 60px rgba(34, 197, 94, 0.4);
+                  }
+                }
+                .pulse-button {
+                  animation: pulse-glow 2s ease-in-out infinite;
+                }
+              `}</style>
+              <button
+                onClick={handleCtaClick}
+                className="pulse-button w-full p-6 rounded-2xl font-bold text-xl text-white transition-all duration-300 hover:scale-105"
+                style={{
+                  fontFamily: QUIZ_FONTS.primary,
+                  backgroundColor: "#22c55e",
+                }}
+              >
+                QUERO O PROTOCOLO + BÔNUS POR R$ 47,90
+              </button>
+            </motion.div>
+
+            {/* Checklist de segurança */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mb-12 space-y-3"
+            >
+              <div
+                className="flex items-center gap-3"
+                style={{
+                  fontFamily: QUIZ_FONTS.secondary,
+                  color: QUIZ_COLORS.text,
+                }}
+              >
+                <span className="text-lg">🔒</span>
+                <span>Compra 100% Segura e Acesso Imediato.</span>
+              </div>
+              <div
+                className="flex items-center gap-3"
+                style={{
+                  fontFamily: QUIZ_FONTS.secondary,
+                  color: QUIZ_COLORS.text,
+                }}
+              >
+                <span className="text-lg">🛡️</span>
+                <span>Garantia de 7 dias ou seu dinheiro de volta.</span>
+              </div>
+              <div
+                className="flex items-center gap-3"
+                style={{
+                  fontFamily: QUIZ_FONTS.secondary,
+                  color: QUIZ_COLORS.text,
+                }}
+              >
+                <span className="text-lg">⚡</span>
+                <span>Acesso enviado no seu e-mail agora.</span>
+              </div>
+            </motion.div>
           </motion.div>
         )}
-
-
       </div>
 
-      {/* You Knew Section */}
-      <YouKnewSection imageUrls={[
-        "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/UKttMSvfEwuMKAJj.webp",
-      ]} />
+      {/* You Knew Section - always at bottom */}
+      {showCta && (
+        <YouKnewSection imageUrls={[
+          "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/UKttMSvfEwuMKAJj.webp",
+        ]} />
+      )}
     </div>
   );
 }
