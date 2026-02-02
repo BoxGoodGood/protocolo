@@ -1,101 +1,69 @@
-/**
- * Quiz configuration and constants
- */
-
 export const QUIZ_QUESTIONS = [
   {
     id: 1,
     question: "Qual a idade do seu bebê?",
-    type: "single-choice",
     options: [
-      { value: "0-3 months", label: "0-3 meses (Fase de exterogestação)" },
-      { value: "4-6 months", label: "4-6 meses (Fase das regressões)" },
-      { value: "6-12 months", label: "6-12 meses (Fase da ansiedade de separação)" },
-      { value: "1+ years", label: "Acima de 1 ano" },
+      "Recém-nascido (0-3 meses)",
+      "3-6 meses",
+      "6-12 meses",
+      "1-2 anos",
+      "Mais de 2 anos",
     ],
   },
   {
     id: 2,
-    question: "Quantas vezes seu bebê acorda à noite?",
-    type: "single-choice",
+    question: "Quantas vezes seu bebê acorda à noite? 🌙",
     options: [
-      { value: "1-3 times", label: "1 a 3 vezes", emoji: "😞" },
-      { value: "3-5 times", label: "3 a 5 vezes", emoji: "😰" },
-      { value: "many_times", label: "Já Perdi as contas", emoji: "🤯" },
+      "1-2 vezes",
+      "3-4 vezes",
+      "5-6 vezes",
+      "Mais de 6 vezes",
+      "Dorme a noite toda",
     ],
   },
   {
     id: 3,
-    question: "Como seu bebê costuma adormecer na maioria das vezes?",
-    type: "single-choice",
+    question: "Como seu bebê costuma adormecer?",
     options: [
-      { value: "nursing", label: "Mamando (Peito ou mamadeira)" },
-      { value: "rocking", label: "Sendo balançado/No colo" },
-      { value: "crib_alone", label: "Sozinho no berço (mas acorda logo em seguida)" },
+      "No colo",
+      "No berço sozinho",
+      "Amamentando",
+      "Com chupeta",
+      "Precisa de ajuda para dormir",
     ],
   },
   {
     id: 4,
-    question: "Seu bebê tem uma rotina de sono estabelecida?",
-    type: "single-choice",
+    question: "Seu bebê tem uma rotina de sono?",
     options: [
-      { value: "somewhat", label: "Mais ou menos" },
-      { value: "no", label: "Não, nenhuma rotina" },
-      { value: "trying", label: "Estou tentando criar" },
+      "Sim, bem definida",
+      "Mais ou menos",
+      "Não, é bem irregular",
+      "Está começando a ter",
+      "Não sei",
     ],
   },
   {
     id: 5,
-    question: "Você sente que o cansaço tem afetado?",
-    type: "single-choice",
+    question: "Como você se sente sobre a situação?",
     options: [
-      { value: "patience", label: "Sua paciência e humor" },
-      { value: "relationship", label: "Seu relacionamento" },
-      { value: "energy", label: "Sua energia durante o dia" },
-      { value: "bonding", label: "Seu vínculo com o bebê" },
-    ],
-  },
-  {
-    id: 6,
-    question: "Já tentou outros métodos para melhorar o sono do seu bebê?",
-    type: "single-choice",
-    options: [
-      { value: "yes_few", label: "Sim, alguns métodos" },
-      { value: "no", label: "Não, é a primeira vez" },
-      { value: "considering", label: "Estou pesquisando opções" },
+      "Muito cansada",
+      "Preocupada",
+      "Frustrada",
+      "Desesperada",
+      "Preciso de ajuda urgente",
     ],
   },
 ];
 
-export const QUIZ_COLORS = {
-  primary: "#B8E5F5", // Azul bebê
-  secondary: "#F5B8D8", // Rosa suave
-  accent: "#E8D5F2", // Lavanda
-  background: "#FFFFFF",
-  text: "#2D3436",
-  lightText: "#636E72",
-  border: "#DFE6E9",
+export const COLORS = {
+  primary: "#ec4899",
+  success: "#22c55e",
+  text: "#1f2937",
+  lightBg: "#f9fafb",
 };
 
-export const QUIZ_FONTS = {
-  primary: "Poppins, sans-serif",
-  secondary: "Nunito, sans-serif",
-};
-
-// Delay for CTA button to appear (in seconds)
-export const CTA_DELAY = 180; // 3 minutes
-
-// Video player configuration
-export const VIDEO_CONFIG = {
-  autoplay: false,
-  controls: true,
-  muted: false,
-  width: "100%",
-  height: "auto",
-};
-
-// You Knew section
-export const YOU_KNEW_SECTION = {
-  title: "Você Sabia!",
-  description: "A falta de sono de qualidade pode afetar não só o bebê, mas também a saúde física e emocional da mãe e até o relacionamento do casal.",
+export const FONTS = {
+  poppins: "Poppins, sans-serif",
+  nunito: "Nunito, sans-serif",
 };
