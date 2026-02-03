@@ -99,7 +99,7 @@ export default function Home() {
             color: QUIZ_COLORS.lightText,
           }}
         >
-          Mais de 10.000 mães já descobriram como melhorar o sono do bebê
+          O método validado por mais de 30.000 mães para fazer o bebê dormir no berço (sem choro).
         </motion.p>
       </motion.div>
     </div>
