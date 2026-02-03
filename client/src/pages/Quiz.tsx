@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { AnimatePresence } from "framer-motion";
 import { QUIZ_QUESTIONS, QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import ProgressBar from "@/components/ProgressBar";
@@ -13,6 +14,7 @@ interface QuizAnswers {
 }
 
 export default function Quiz() {
+  const [, setLocation] = useLocation();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswers>({});
   const [isProcessing, setIsProcessing] = useState(false);
@@ -61,8 +63,8 @@ export default function Quiz() {
         // Simulate processing time
         await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        // Redirect to results page
-        window.location.href = `/results`;
+        // Redirect to results page using Wouter for SPA navigation
+        setLocation("/results");
       }
     } catch (error) {
       console.error("Error submitting quiz:", error);
