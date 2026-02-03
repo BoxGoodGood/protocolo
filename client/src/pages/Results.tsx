@@ -272,7 +272,7 @@ export default function Results() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-center mb-8 md:mb-12 px-2"
+              className="text-center mb-4 md:mb-6 px-2"
             >
               <p
                 className="text-xs md:text-base leading-relaxed mb-4"
