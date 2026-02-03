@@ -1,4 +1,4 @@
-import React from "react";
+import { QUIZ_COLORS } from "@/constants/quiz";
 import { motion } from "framer-motion";
 
 interface ProgressBarProps {
@@ -6,26 +6,43 @@ interface ProgressBarProps {
   total: number;
 }
 
-export const ProgressBar: React.FC<ProgressBarProps> = ({ current, total }) => {
+export default function ProgressBar({ current, total }: ProgressBarProps) {
   const percentage = Math.round((current / total) * 100);
 
   return (
-    <div className="w-full px-4 py-6">
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-sm font-semibold text-gray-700">
-          Pergunta {current} de {total}
-        </span>
-        <span className="text-lg font-bold text-pink-600">{percentage}%</span>
-      </div>
-      
-      <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden shadow-md">
+    <div
+      className="w-full px-4 py-6"
+      style={{ backgroundColor: QUIZ_COLORS.background }}
+    >
+      <div className="max-w-2xl mx-auto">
+        {/* Percentage Text */}
         <motion.div
-          className="h-full bg-gradient-to-r from-pink-500 to-pink-600 rounded-full"
-          initial={{ width: 0 }}
-          animate={{ width: `${percentage}%` }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        />
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mb-3"
+        >
+          <p
+            className="text-sm font-semibold"
+            style={{ color: QUIZ_COLORS.text }}
+          >
+            {percentage}%
+          </p>
+        </motion.div>
+
+        {/* Progress Bar */}
+        <div
+          className="w-full h-2 rounded-full overflow-hidden"
+          style={{ backgroundColor: QUIZ_COLORS.border }}
+        >
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${percentage}%` }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="h-full rounded-full"
+            style={{ backgroundColor: QUIZ_COLORS.primary }}
+          />
+        </div>
       </div>
     </div>
   );
-};
+}

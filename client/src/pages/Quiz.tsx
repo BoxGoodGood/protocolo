@@ -1,50 +1,101 @@
-import React, { useState } from "react";
-import { useLocation } from "wouter";
-import { motion } from "framer-motion";
-import { ProgressBar } from "../components/ProgressBar";
-import { QuizQuestion } from "../components/QuizQuestion";
-import { QUIZ_QUESTIONS } from "../constants/quiz";
+import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import { QUIZ_QUESTIONS, QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
+import ProgressBar from "@/components/ProgressBar";
+import QuizQuestion from "@/components/QuizQuestion";
+import ProcessingScreen from "@/components/ProcessingScreen";
+import BackButton from "@/components/BackButton";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
-export const Quiz: React.FC = () => {
-  const [, setLocation] = useLocation();
+interface QuizAnswers {
+  [key: number]: string;
+}
+
+export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<QuizAnswers>({});
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  const handleSelectOption = (option: string) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = option;
-    setAnswers(newAnswers);
+  const submitQuizMutation = trpc.quiz.submitResponse.useMutation();
 
+  const handleSelectAnswer = (value: string) => {
+    setAnswers({
+      ...answers,
+      [currentQuestion]: value,
+    });
+
+    // Auto-advance to next question after a short delay
     setTimeout(() => {
       if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
       } else {
-        setLocation("/results");
+        handleSubmitQuiz({
+          babyAge: answers[0] || "",
+          wakeUps: answers[1] || "",
+          sleepMethod: answers[2] || "",
+          hasRoutine: answers[3] || "",
+          motherFeeling: answers[4] || "",
+          triedOtherMethods: answers[5] || "",
+        });
       }
-    }, 500);
+    }, 300);
   };
 
-  const question = QUIZ_QUESTIONS[currentQuestion];
+  const handleSubmitQuiz = async (finalAnswers: any) => {
+    setIsProcessing(true);
+
+    try {
+      const response = await submitQuizMutation.mutateAsync({
+        email: `lead-${Date.now()}@quiz.local`,
+        name: undefined,
+        babyAge: finalAnswers.babyAge,
+        wakeUps: finalAnswers.wakeUps,
+        sleepMethod: finalAnswers.sleepMethod,
+        hasRoutine: finalAnswers.hasRoutine,
+        motherFeeling: finalAnswers.motherFeeling,
+        triedOtherMethods: finalAnswers.triedOtherMethods,
+      });
+
+      if (response.success) {
+        // Simulate processing time
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+
+        // Redirect to results page
+        window.location.href = `/results`;
+      }
+    } catch (error) {
+      console.error("Error submitting quiz:", error);
+      toast.error("Erro ao enviar suas respostas. Tente novamente.");
+      setIsProcessing(false);
+    }
+  };
+
+  if (isProcessing) {
+    return <ProcessingScreen />;
+  }
+
+  const currentQuestionData = QUIZ_QUESTIONS[currentQuestion];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-pink-100 py-8">
-      <div className="max-w-2xl mx-auto">
-        <ProgressBar current={currentQuestion + 1} total={QUIZ_QUESTIONS.length} />
+    <div
+      className="min-h-screen flex flex-col relative"
+      style={{ backgroundColor: QUIZ_COLORS.background }}
+    >
+      <BackButton />
+      <ProgressBar current={currentQuestion + 1} total={QUIZ_QUESTIONS.length} />
 
-        <motion.div
-          className="bg-white rounded-lg shadow-xl p-8 mt-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
+      <div className="flex-1 flex items-center justify-center w-full">
+        <AnimatePresence mode="wait">
           <QuizQuestion
-            question={question.question}
-            options={question.options}
-            onSelect={handleSelectOption}
-            selectedOption={answers[currentQuestion]}
+            key={currentQuestion}
+            question={currentQuestionData.question}
+            options={currentQuestionData.options}
+            onSelect={handleSelectAnswer}
+            selectedValue={answers[currentQuestion]}
           />
-        </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
-};
+}
