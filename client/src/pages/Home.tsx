@@ -59,7 +59,7 @@ export default function Home() {
           className="text-lg md:text-xl font-medium mb-8"
           style={{
             fontFamily: QUIZ_FONTS.primary,
-            color: "#4868f6",
+            color: "#888888",
             lineHeight: "1.4",
           }}
         >
@@ -93,7 +93,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-xs"
+          className="text-sm md:text-base"
           style={{
             fontFamily: QUIZ_FONTS.secondary,
             color: QUIZ_COLORS.lightText,
