@@ -1,0 +1,1 @@
+ALTER TABLE `quiz_responses` ADD `fbclid` varchar(500);
