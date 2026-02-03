@@ -99,7 +99,7 @@ export default function Home() {
             color: QUIZ_COLORS.lightText,
           }}
         >
-          O método validado por mais de 30.000 mães para fazer o bebê dormir no berço (sem choro).
+          O método validado por mais de 30 mil mães para fazer o bebê dormir no berço (sem choro).
         </motion.p>
       </motion.div>
     </div>
