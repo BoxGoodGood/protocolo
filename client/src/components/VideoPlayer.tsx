@@ -16,7 +16,6 @@ declare global {
 
 export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }: VideoPlayerProps) {
   const [elapsedTime, setElapsedTime] = useState(0);
-  const [totalDuration, setTotalDuration] = useState(0);
   const [fakeProgress, setFakeProgress] = useState(0);
   const [isCtaVisible, setIsCtaVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -24,7 +23,6 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
   const vimeoPlayerRef = useRef<any>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Calculate fake progress based on video time
   const calculateFakeProgress = (currentTime: number, duration: number) => {
     if (duration === 0) return 0;
     
@@ -39,13 +37,6 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
     } else {
       // End of video: rises from 80% to 100%
       return 0.8 + ((progress - 0.7) / 0.3) * 0.2;
-    }
-  };
-
-  // Handle video metadata to get duration
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      setTotalDuration(videoRef.current.duration);
     }
   };
 
@@ -76,12 +67,6 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
         const player = new window.Vimeo.Player(iframeRef.current);
         vimeoPlayerRef.current = player;
 
-        // Get video duration
-        player.getDuration().then((duration: number) => {
-          setTotalDuration(duration);
-        });
-
-        // Track video time
         player.on("timeupdate", (data: any) => {
           const currentTime = data.seconds;
           setElapsedTime(Math.floor(currentTime));
@@ -91,7 +76,6 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
           setFakeProgress(progress);
         });
 
-        // Detect when video ends
         player.on("ended", () => {
           if (!isCtaVisible) {
             setIsCtaVisible(true);
@@ -104,17 +88,13 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
     }
   };
 
-  // For HTML5 video tracking
   useEffect(() => {
     if (!isVertical) {
       intervalRef.current = setInterval(() => {
         if (videoRef.current) {
           const currentTime = videoRef.current.currentTime;
           const duration = videoRef.current.duration;
-          
           setElapsedTime(Math.floor(currentTime));
-          
-          // Calculate and update fake progress
           const progress = calculateFakeProgress(currentTime, duration);
           setFakeProgress(progress);
 
@@ -134,7 +114,6 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
     }
   }, [isCtaVisible, isVertical]);
 
-  // Separate effect to call onCtaReady when CTA becomes visible
   useEffect(() => {
     if (isCtaVisible) {
       onCtaReady();
@@ -180,7 +159,7 @@ export default function VideoPlayer({ videoUrl, onCtaReady, isVertical = false }
                   src={videoUrl}
                   controls
                   autoPlay
-                  onLoadedMetadata={handleLoadedMetadata}
+
                   className="w-full h-auto max-h-96"
                   style={{ aspectRatio: "16/9" }}
                 />

@@ -15,7 +15,6 @@ export default function YouKnewSection({ imageUrls = [] }: YouKnewSectionProps) 
       style={{ backgroundColor: QUIZ_COLORS.accent + "20" }}
     >
       <div className="max-w-2xl mx-auto">
-        {/* Title */}
         <h3
           className="text-2xl md:text-3xl font-bold mb-4 text-center"
           style={{
@@ -26,7 +25,6 @@ export default function YouKnewSection({ imageUrls = [] }: YouKnewSectionProps) 
           {YOU_KNEW_SECTION.title}
         </h3>
 
-        {/* Description */}
         <p
           className="text-lg text-center mb-8"
           style={{
@@ -38,7 +36,6 @@ export default function YouKnewSection({ imageUrls = [] }: YouKnewSectionProps) 
           {YOU_KNEW_SECTION.description}
         </p>
 
-        {/* Images Grid */}
         {imageUrls.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {imageUrls.map((url, idx) => (
@@ -59,7 +56,6 @@ export default function YouKnewSection({ imageUrls = [] }: YouKnewSectionProps) 
           </div>
         )}
 
-        {/* Placeholder for images */}
         {imageUrls.length === 0 && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[1, 2, 3].map((idx) => (

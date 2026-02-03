@@ -77,7 +77,6 @@ export default function Results() {
       style={{ backgroundColor: QUIZ_COLORS.background }}
     >
       <div className="max-w-2xl mx-auto px-4 py-8 md:py-16">
-        {/* Texto explicativo - Hidden after CTA */}
         {!showCta && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -105,7 +104,6 @@ export default function Results() {
           </motion.div>
         )}
 
-        {/* VSL Video Player - Hidden after CTA */}
         {!showCta && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -121,14 +119,12 @@ export default function Results() {
           </motion.div>
         )}
 
-        {/* Conteúdo pós-vídeo - Only shown after CTA */}
         {showCta && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Headline - Foco em Validacao */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -151,7 +147,6 @@ export default function Results() {
               </div>
             </motion.div>
 
-            {/* Subheadline */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -169,7 +164,6 @@ export default function Results() {
               </p>
             </motion.div>
 
-            {/* Texto de Preço com Desconto */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -219,7 +213,6 @@ export default function Results() {
               </div>
             </motion.div>
 
-            {/* Botão CTA com Glow */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -267,7 +260,6 @@ export default function Results() {
               </a>
             </motion.div>
 
-            {/* Texto de Segurança e Métodos de Pagamento */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -284,7 +276,6 @@ export default function Results() {
                 Compra Segura • Acesso Imediato • Garantia de 7 dias
               </p>
               
-              {/* Payment Methods */}
               <div className="flex justify-center items-center mt-4">
                 <img 
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/rSYOXPvggmmPhFxs.webp" 
@@ -297,14 +288,12 @@ export default function Results() {
         )}
       </div>
 
-      {/* You Knew Section - always at bottom when CTA is shown */}
       {showCta && (
         <YouKnewSection imageUrls={[
           "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029970056/baecVWdpacOPDLjq.webp",
         ]} />
       )}
 
-      {/* Footer - only shown on last page when CTA is visible */}
       {showCta && (
         <footer className="mt-4 md:mt-6 py-4 md:py-6 border-t border-gray-200">
           <div className="max-w-2xl mx-auto px-4 text-center">

@@ -1,11 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { QUIZ_COLORS, QUIZ_FONTS } from "@/constants/quiz";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const [, setLocation] = useLocation();
-  const [isHoveringCta, setIsHoveringCta] = React.useState(false);
+  const [isHoveringCta, setIsHoveringCta] = useState(false);
 
   const handleStartQuiz = () => {
     setLocation("/quiz");
@@ -22,7 +22,6 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="max-w-md text-center"
       >
-        {/* Image */}
         <motion.div
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
@@ -36,7 +35,6 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* Headline - H1 */}
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +49,6 @@ export default function Home() {
           O seu bebê só dorme no peito ou no colo?
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +64,6 @@ export default function Home() {
           presa a um ciclo de exaustão.
         </motion.p>
 
-        {/* CTA Button */}
         <motion.button
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -88,7 +84,6 @@ export default function Home() {
           Começar Agora
         </motion.button>
 
-        {/* Trust Signal */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

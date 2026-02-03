@@ -56,7 +56,7 @@ export default function Quiz() {
         sleepMethod: finalAnswers.sleepMethod,
         hasRoutine: finalAnswers.hasRoutine,
         motherFeeling: finalAnswers.motherFeeling,
-        triedOtherMethods: finalAnswers.triedOtherMethods,
+        triedOtherMethods: finalAnswers.triedOtherMethods || "",
       });
 
       if (response.success) {
